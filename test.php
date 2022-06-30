@@ -12,12 +12,7 @@ include('database/db.php');
 
     </button>
     <script>
-        $(document).ready(function() {
-            $("[data-toggle=tooltip]").mouseenter(function() {
-                var $this = $(this);
-                $this.attr('title', $this.val());
-            });
-        });
+        alert("update");
     </script>
 </div>
 <script src="style/validate.js"></script>
