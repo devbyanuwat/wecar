@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('handbrake_comment_<?php echo $row_handbrake['goods_chk_handbrake_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_handbrake; ?>">
+        <input type="hidden" name="count_handbrake" id="count_handbrake" value="<?php echo $count_handbrake; ?>">
     </div>
 </div>

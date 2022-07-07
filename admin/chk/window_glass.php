@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_window_glass; ?>">
+        <input type="hidden" name="count_window_glass" id="count_window_glass" value="<?php echo $count_window_glass; ?>">
     </div>
 </div>

@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('engine_and_gear_comment_<?php echo $row_engine_and_gear['goods_chk_engine_and_gear_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_engine_and_gear; ?>">
+        <input type="hidden" name="count_engine_and_gear" id="count_engine_and_gear" value="<?php echo $count_engine_and_gear; ?>">
     </div>
 </div>

@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('instrument_panel_comment_<?php echo $row_instrument_panel['goods_chk_instrument_panel_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_instrument_panel; ?>">
+        <input type="hidden" name="count_instrument_panel" id="count_instrument_panel" value="<?php echo $count_instrument_panel; ?>">
     </div>
 </div>

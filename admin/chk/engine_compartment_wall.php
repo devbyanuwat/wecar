@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('engine_compartment_wall_comment_<?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_engine_compartment_wall; ?>">
+        <input type="hidden" name="count_engine_compartment_wall" id="count_engine_compartment_wall" value="<?php echo $count_engine_compartment_wall; ?>">
     </div>
 </div>

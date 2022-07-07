@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_speed_meter; ?>">
+        <input type="hidden" name="count_speed_meter" id="count_speed_meter" value="<?php echo $count_speed_meter; ?>">
     </div>
 </div>

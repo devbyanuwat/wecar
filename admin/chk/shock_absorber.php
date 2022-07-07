@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_shock_absorber; ?>">
+        <input type="hidden" name="count_shock_absorber" id="count_shock_absorber" value="<?php echo $count_shock_absorber; ?>">
     </div>
 </div>

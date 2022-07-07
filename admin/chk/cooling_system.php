@@ -42,6 +42,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_cooling_system; ?>">
+        <input type="hidden" name="count_cooling_system" id="count_cooling_system" value="<?php echo $count_cooling_system; ?>">
     </div>
 </div>

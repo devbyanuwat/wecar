@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('lock_system_comment_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_lock_system; ?>">
+        <input type="hidden" name="count_lock_system" id="count_lock_system" value="<?php echo $count_lock_system; ?>">
     </div>
 </div>

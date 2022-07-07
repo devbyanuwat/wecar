@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_window_film; ?>">
+        <input type="hidden" name="count_window_film" id="count_window_film" value="<?php echo $count_window_film; ?>">
     </div>
 </div>

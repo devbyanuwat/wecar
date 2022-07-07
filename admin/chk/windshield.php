@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_windshield; ?>">
+        <input type="hidden" name="count_windshield" id="count_windshield" value="<?php echo $count_windshield; ?>">
     </div>
 </div>

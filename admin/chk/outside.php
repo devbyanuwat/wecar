@@ -14,6 +14,7 @@
         <?php
         $sql_outside = "SELECT * FROM `goods_chk_outside`";
         $result_outside = mysqli_query($conn, $sql_outside);
+        $count_outside =  mysqli_num_rows($result_outside);
         while ($row_outside = mysqli_fetch_assoc($result_outside)) {
         ?>
 
@@ -45,8 +46,8 @@
                 </span>
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')"></button>
             </div>
-            <!-- <input type="input" name="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>"> -->
-        <?php } ?>
 
+        <?php } ?>
+        <input type="hidden" name="count_outside" id="count_outside" value="<?php echo $count_outside; ?>">
     </div>
 </div>

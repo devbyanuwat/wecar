@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_side_mirror; ?>">
+        <input type="hidden" name="count_side_mirror" id="count_side_mirror" value="<?php echo $count_side_mirror; ?>">
     </div>
 </div>

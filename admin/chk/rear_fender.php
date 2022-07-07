@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('rear_fender_comment_<?php echo $row_rear_fender['goods_chk_rear_fender_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_rear_fender; ?>">
+        <input type="hidden" name="count_rear_fender" id="count_rear_fender" value="<?php echo $count_rear_fender; ?>">
     </div>
 </div>

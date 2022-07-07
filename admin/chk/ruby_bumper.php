@@ -45,6 +45,6 @@
                  <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>')"></button>
              </div>
          <?php } ?>
-         <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_ruby_bumper; ?>">
+         <input type="hidden" name="count_ruby_bumper" id="count_ruby_bumper" value="<?php echo $count_ruby_bumper; ?>">
      </div>
  </div>

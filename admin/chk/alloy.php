@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_alloy; ?>">
+        <input type="hidden" name="count_alloy" id="count_alloy" value="<?php echo $count_alloy; ?>">
     </div>
 </div>

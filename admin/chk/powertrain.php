@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('powertrain_comment_<?php echo $row_powertrain['goods_chk_powertrain_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_powertrain; ?>">
+        <input type="hidden" name="count_powertrain" id="count_powertrain" value="<?php echo $count_powertrain; ?>">
     </div>
 </div>

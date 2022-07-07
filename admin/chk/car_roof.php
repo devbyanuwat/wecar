@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('car_roof_comment_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_car_roof; ?>">
+        <input type="hidden" name="count_car_roof" id="count_car_roof" value="<?php echo $count_car_roof; ?>">
     </div>
 </div>

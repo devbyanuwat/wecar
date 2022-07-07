@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="fog_lamp_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="fog_lamp_id_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" value="<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>">
+                    <input type="hidden" name="fog_lamp_id_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" id="fog_lamp_id_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" value="<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>">
                     <?php echo $row_fog_lamp['goods_chk_fog_lamp_name'];  ?>
                 </div>
 
@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_fog_lamp; ?>">
+        <input type="hidden" name="count_fog_lamp" id="count_fog_lamp" value="<?php echo $count_fog_lamp; ?>">
     </div>
 </div>

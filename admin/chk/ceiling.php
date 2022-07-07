@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('ceiling_comment_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_ceiling; ?>">
+        <input type="hidden" name="count_ceiling" id="count_ceiling" value="<?php echo $count_ceiling; ?>">
     </div>
 </div>

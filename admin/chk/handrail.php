@@ -45,6 +45,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('handrail_comment_<?php echo $row_handrail['goods_chk_handrail_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_handrail; ?>">
+        <input type="hidden" name="count_handrail" id="count_handrail" value="<?php echo $count_handrail; ?>">
     </div>
 </div>

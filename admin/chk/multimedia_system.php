@@ -43,6 +43,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('multimedia_system_comment_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_multimedia_system; ?>">
+        <input type="hidden" name="count_multimedia_system" id="count_multimedia_system" value="<?php echo $count_multimedia_system; ?>">
     </div>
 </div>

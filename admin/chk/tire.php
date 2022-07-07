@@ -47,6 +47,6 @@
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_tire; ?>">
+        <input type="hidden" name="count_tire" id="count_tire" value="<?php echo $count_tire; ?>">
     </div>
 </div>
