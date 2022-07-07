@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="window_film_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="window_film_id_<?php echo $row_window_film['goods_chk_window_film_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="window_film_id_<?php echo $row_window_film['goods_chk_window_film_id']; ?>" id="window_film_id_<?php echo $row_window_film['goods_chk_window_film_id']; ?>" value="<?php echo $row_window_film['goods_chk_window_film_id']; ?>">
                     <?php echo $row_window_film['goods_chk_window_film_name'];  ?>
                 </div>
 

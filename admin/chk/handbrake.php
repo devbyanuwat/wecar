@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="handbrake_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="handbrake_id_<?php echo $row_handbrake['goods_chk_handbrake_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="handbrake_id_<?php echo $row_handbrake['goods_chk_handbrake_id']; ?>" id="handbrake_id_<?php echo $row_handbrake['goods_chk_handbrake_id']; ?>" value="<?php echo $row_handbrake['goods_chk_handbrake_id']; ?>">
                     <?php echo $row_handbrake['goods_chk_handbrake_name'];  ?>
                 </div>
 

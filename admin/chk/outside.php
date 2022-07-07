@@ -20,17 +20,17 @@
 
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="outside_id" id="outside_id" value="<?php echo $row_outside['goods_chk_outside_id']; ?>">
+                    <input type="hidden" name="outside_id_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_id_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="<?php echo $row_outside['goods_chk_outside_id']; ?>">
                     <?php echo $row_outside['goods_chk_outside_name'];  ?>
                 </div>
 
             </div>
             <div class="col-5 d-flex justify-content-between ">
                 <div class="form-check form-check-inline ">
-                    <input class="form-check-input" type="radio" name="outside_name_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_name_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
+                    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
                 </div>
                 <div class="form-check form-check-inline ">
-                    <input class="form-check-input" type="radio" name="outside_name_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_name_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
+                    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
                 </div>
 
                 <a style="cursor: pointer;" id="a_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" onclick="add_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')">
@@ -44,6 +44,7 @@
                 <span name="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' id='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' value=''>
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')"></button>
             </div>
 

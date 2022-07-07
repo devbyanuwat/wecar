@@ -18,7 +18,7 @@
         ?>
             <div class="col-2 ps-4">
                 <div class="row">
-                    <input type="hidden" name="tire_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="tire_id_<?php echo $row_tire['goods_chk_tire_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="tire_id_<?php echo $row_tire['goods_chk_tire_id']; ?>" id="tire_id_<?php echo $row_tire['goods_chk_tire_id']; ?>" value="<?php echo $row_tire['goods_chk_tire_id']; ?>">
                     <?php echo $row_tire['goods_chk_tire_name'];  ?>
                 </div>
 

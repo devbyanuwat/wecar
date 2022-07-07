@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="rear_fender_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="rear_fender_id_<?php echo $row_rear_fender['goods_chk_rear_fender_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="rear_fender_id_<?php echo $row_rear_fender['goods_chk_rear_fender_id']; ?>" id="rear_fender_id_<?php echo $row_rear_fender['goods_chk_rear_fender_id']; ?>" value="<?php echo $row_rear_fender['goods_chk_rear_fender_id']; ?>">
                     <?php echo $row_rear_fender['goods_chk_rear_fender_name'];  ?>
                 </div>
 

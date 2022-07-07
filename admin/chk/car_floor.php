@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="car_floor_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="car_floor_id_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="car_floor_id_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>" id="car_floor_id_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>" value="<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>">
                     <?php echo $row_car_floor['goods_chk_car_floor_name'];  ?>
                 </div>
 

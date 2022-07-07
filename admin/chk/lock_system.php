@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="lock_system_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="lock_system_id_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="lock_system_id_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" id="lock_system_id_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" value="<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>">
                     <?php echo $row_lock_system['goods_chk_lock_system_name'];  ?>
                 </div>
 

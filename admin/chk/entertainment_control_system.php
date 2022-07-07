@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="entertainment_control_system_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="entertainment_control_system_id_<?php echo $row_entertainment_control_system['goods_chk_entertainment_control_system_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="entertainment_control_system_id_<?php echo $row_entertainment_control_system['goods_chk_entertainment_control_system_id']; ?>" id="entertainment_control_system_id_<?php echo $row_entertainment_control_system['goods_chk_entertainment_control_system_id']; ?>" value="<?php echo $row_entertainment_control_system['goods_chk_entertainment_control_system_id']; ?>">
                     <?php echo $row_entertainment_control_system['goods_chk_entertainment_control_system_name'];  ?>
                 </div>
 

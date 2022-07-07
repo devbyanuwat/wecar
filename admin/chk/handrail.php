@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="handrail_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="handrail_id_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="handrail_id_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" id="handrail_id_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" value="<?php echo $row_handrail['goods_chk_handrail_id']; ?>">
                     <?php echo $row_handrail['goods_chk_handrail_name'];  ?>
                 </div>
 

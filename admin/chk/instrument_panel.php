@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="instrument_panel_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="instrument_panel_id_<?php echo $row_instrument_panel['goods_chk_instrument_panel_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="instrument_panel_id_<?php echo $row_instrument_panel['goods_chk_instrument_panel_id']; ?>" id="instrument_panel_id_<?php echo $row_instrument_panel['goods_chk_instrument_panel_id']; ?>" value="<?php echo $row_instrument_panel['goods_chk_instrument_panel_id']; ?>">
                     <?php echo $row_instrument_panel['goods_chk_instrument_panel_name'];  ?>
                 </div>
 

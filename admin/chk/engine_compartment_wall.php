@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="engine_compartment_wall_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="engine_compartment_wall_id_<?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="engine_compartment_wall_id_<?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_id']; ?>" id="engine_compartment_wall_id_<?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_id']; ?>" value="<?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_id']; ?>">
                     <?php echo $row_engine_compartment_wall['goods_chk_engine_compartment_wall_name'];  ?>
                 </div>
 

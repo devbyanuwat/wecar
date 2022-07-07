@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="ceiling_light_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="ceiling_light_id_<?php echo $row_ceiling_light['goods_chk_ceiling_light_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="ceiling_light_id_<?php echo $row_ceiling_light['goods_chk_ceiling_light_id']; ?>" id="ceiling_light_id_<?php echo $row_ceiling_light['goods_chk_ceiling_light_id']; ?>" value="<?php echo $row_ceiling_light['goods_chk_ceiling_light_id']; ?>">
                     <?php echo $row_ceiling_light['goods_chk_ceiling_light_name'];  ?>
                 </div>
 

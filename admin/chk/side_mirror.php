@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="side_mirror_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="side_mirror_id_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="side_mirror_id_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" id="side_mirror_id_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" value="<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>">
                     <?php echo $row_side_mirror['goods_chk_side_mirror_name'];  ?>
                 </div>
 

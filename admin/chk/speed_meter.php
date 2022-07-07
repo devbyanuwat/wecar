@@ -17,7 +17,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="speed_meter_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="speed_meter_id_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="speed_meter_id_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" id="speed_meter_id_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" value="<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>">
                     <?php echo $row_speed_meter['goods_chk_speed_meter_name'];  ?>
                 </div>
 

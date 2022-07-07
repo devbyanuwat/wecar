@@ -311,6 +311,7 @@
             if (result.value) {
                 console.log("Result: " + result.value);
                 document.getElementById(name).innerHTML = result.value;
+                document.getElementById('com_' + name).value = result.value;
                 document.getElementById('c_' + name).style.display = 'block';
             }
         });
@@ -331,6 +332,7 @@
                     icon: 'success'
                 })
                 document.getElementById(name).innerHTML = "";
+                document.getElementById('com_' + name).value = "";
                 document.getElementById('c_' + name).style.display = 'none';
             }
         })

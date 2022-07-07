@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="shock_absorber_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="shock_absorber_id_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="shock_absorber_id_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" id="shock_absorber_id_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" value="<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>">
                     <?php echo $row_shock_absorber['goods_chk_shock_absorber_name'];  ?>
                 </div>
 

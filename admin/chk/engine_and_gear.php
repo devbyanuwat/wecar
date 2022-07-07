@@ -19,7 +19,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="engine_and_gear_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="engine_and_gear_id_<?php echo $row_engine_and_gear['goods_chk_engine_and_gear_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="engine_and_gear_id_<?php echo $row_engine_and_gear['goods_chk_engine_and_gear_id']; ?>" id="engine_and_gear_id_<?php echo $row_engine_and_gear['goods_chk_engine_and_gear_id']; ?>" value="<?php echo $row_engine_and_gear['goods_chk_engine_and_gear_id']; ?>">
                     <?php echo $row_engine_and_gear['goods_chk_engine_and_gear_name'];  ?>
                 </div>
 

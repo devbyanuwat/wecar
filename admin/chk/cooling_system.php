@@ -16,7 +16,7 @@
         ?>
             <div class="<?php echo $detail; ?>">
                 <div class="row">
-                    <input type="hidden" name="cooling_system_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="cooling_system_id_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+                    <input type="hidden" name="cooling_system_id_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" id="cooling_system_id_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" value="<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>">
                     <?php echo $row_cooling_system['goods_chk_cooling_system_name'];  ?>
                 </div>
 
@@ -39,9 +39,10 @@
                 <span name="cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" id="cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>">
                     comment
                 </span>
+                <input type="text" name="com_cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" id="com_cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>" value="">
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('cooling_system_comment_<?php echo $row_cooling_system['goods_chk_cooling_system_id']; ?>')"></button>
             </div>
         <?php } ?>
-        <input type="hidden" name="count_cooling_system" id="count_cooling_system" value="<?php echo $count_cooling_system; ?>">
+
     </div>
 </div>

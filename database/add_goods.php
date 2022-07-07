@@ -1,6 +1,6 @@
 <?php
 $table = [
-    // 'outside',
+    'outside',
     'front_light',
     'fog_lamp',
     'ruby_bumper',
@@ -42,25 +42,35 @@ echo "<table border='1'>
     <th>id</th>
     </tr>
 ";
+$comment  = "";
 for ($i = 0; $i < count($table); $i++) {
     $count = $_POST['count_' . $table[$i]];
 
     echo "<tr>";
-    echo "<th>";
+    echo "<td>";
     echo  $table[$i];
-    echo "</th>";
-    echo "<th>";
+    echo "</td>";
+    echo "<td>";
     echo  $count;
-    echo "</th>";
+    echo "</td>";
+    echo "<td>";
+
     for ($j = 1; $j <= $count; $j++) {
         $id = $_POST[$table[$i] . '_id_' . $j];
-        echo "<th>";
-        echo  $id;
-        echo "</th>";
+        $value = $_POST[$table[$i] . '_value_' . $j];
+        if (($_POST[$table[$i] . '_comment_' . $j]) != "") {
+            $comment = $_POST[$table[$i] . '_comment_' . $j];
+        } else {
+            $comment = "";
+        }
+        echo  " ID => " . $id;
+        echo "\t";
+        echo " VALUE => " . $value;
+        echo " comment => " . $comment;
+
+        echo "<br>";
     }
-
-
-
+    echo "</td>";
     echo "</tr>";
 }
 
