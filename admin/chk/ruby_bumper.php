@@ -42,6 +42,8 @@
                 <span name="ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" id="ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>' id='com_ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('ruby_bumper_comment_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>')"></button>
             </div>
         <?php } ?>

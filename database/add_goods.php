@@ -1,4 +1,5 @@
 <?php
+include('db.php');
 $table = [
     'outside',
     'front_light',
@@ -39,7 +40,7 @@ echo "<table border='1'>
     <tr>
     <th>TABLE</th>
     <th>count</th>
-    <th>id</th>
+    <th>Value</th>
     <th>SQL Result</th>
     </tr>
 ";
@@ -67,7 +68,7 @@ for ($i = 0; $i < count($table); $i++) {
             $comment = "";
         }
         $str = 'goods_chk_' . $qoute . '_id';
-        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('1', '$id', '$value')";
+        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('3', '$id', '$value');";
         echo  " ID => " . $id;
         echo "<br>";
         echo " VALUE => " . $value;
@@ -78,9 +79,14 @@ for ($i = 0; $i < count($table); $i++) {
         echo "<br>";
         echo "----------------";
         echo "<br>";
+        if (mysqli_query($conn, $sql)) {
+            $status =  "$table[$i] successfully";
+        } else {
+            $status =  "Error INSERT table: " . $table[$i] . " " . mysqli_error($conn);
+        }
     }
     echo "<td>";
-    echo $sql;
+    echo $status;
     echo "</td>";
     echo "</td>";
     echo "</tr>";

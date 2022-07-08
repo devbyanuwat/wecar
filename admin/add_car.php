@@ -1,5 +1,5 @@
 <form action="../database/add_goods.php" method="post" class="row g-3  needs-validation" novalidate>
-    <div class="fs-2 text-start mb-4 fw-bold">
+    <!-- <div class="fs-2 text-start mb-4 fw-bold">
         เพิ่มรถ
     </div>
     <div class="d-flex justify-content-center">
@@ -29,9 +29,7 @@
                     <label for="years" class="form-label">ปีรถ</label>
                     <input type="text" name="years" id="years" maxlength="4" pattern="[0-9]{1,4}" class="form-control" required>
 
-                    <!-- <div class="invalid-feedback">
-                                    กรอกข้อมูลประเภทตัวเลข
-                                </div> -->
+
                 </div>
                 <div class="col-6 mb-3 ">
                     <label for="price" class="form-label">ราคา</label>
@@ -40,9 +38,7 @@
 
                         <input type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[1-9]{1,9}" maxlength="9" required>
                         <span class="input-group-text" id="price">฿</span>
-                        <!-- <div class="invalid-feedback">
-                                        กรอกข้อมูลประเภทตัวเลข
-                                    </div> -->
+
                     </div>
                 </div>
 
@@ -58,7 +54,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <div class="fs-2 text-start mb-4 fw-bold">
         สเปค
@@ -126,11 +122,11 @@
                     <?php include('chk/outside.php'); ?>
                     <br>
                     <?php include('chk/front_light.php'); ?>
-                    <!--   <br>
+                    <br>
                     <?php include('chk/fog_lamp.php'); ?>
                     <br>
                     <?php include('chk/ruby_bumper.php'); ?>
-                    <br>
+                    <!--   <br>
                     <?php include('chk/windshield.php'); ?>
                     <br>
                     <?php include('chk/front_fender.php'); ?>

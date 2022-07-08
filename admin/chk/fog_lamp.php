@@ -42,6 +42,8 @@
                 <span name="fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" id="fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>' id='com_fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('fog_lamp_comment_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>')"></button>
             </div>
         <?php } ?>

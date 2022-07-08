@@ -1,14 +1,14 @@
 
 <?php
-/*
+
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "12345678";
 $dbname = "weusecar";
 
 $table = [
-    // 'outside',
-    // 'front_light',
+    'outside',
+    'front_light',
     'fog_lamp',
     'ruby_bumper',
     'windshield',
@@ -54,18 +54,15 @@ if (!$conn) {
 for ($i = 0; $i < count($table); $i++) {
     # code...
 
-    $sql = "CREATE TABLE `weusecar`.`chk_$table[$i]` 
-( `goods_id` INT(11) NOT NULL , 
-`goods_chk_$table[$i]_id` INT(11) NOT NULL , 
-`goods_chk_status_id` INT(11) NOT NULL ) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE `weusecar`.`chk_$table[$i]` ( `goods_id` INT(11) NOT NULL , `goods_chk_$table[$i]_id` INT(11) NOT NULL , `goods_chk_status_id` INT(11) NOT NULL , PRIMARY KEY (`goods_id`)) ENGINE = InnoDB;";
+    // $sql = "CREATE TABLE `weusecar`.`goods_chk_$table[$i]` ( `goods_chk_$table[$i]_id` INT NOT NULL AUTO_INCREMENT , `goods_chk_$table[$i]_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`goods_chk_$table[$i]_id`)) ENGINE = InnoDB";
 
-    echo $sql;
+    // echo $sql;
     echo "<br>";
     if (mysqli_query($conn, $sql)) {
-        echo "Table MyGuests created successfully";
+        echo "Table $table[$i] created successfully";
     } else {
         echo "Error creating table: " . $table[$i] . " " . mysqli_error($conn);
     }
 }
 mysqli_close($conn);
-*/
