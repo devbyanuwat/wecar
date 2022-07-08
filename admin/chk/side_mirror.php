@@ -42,6 +42,8 @@
                 <span name="side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" id="side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>' id='com_side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('side_mirror_comment_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>')"></button>
             </div>
         <?php } ?>

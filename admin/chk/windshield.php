@@ -42,6 +42,8 @@
                 <span name="windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" id="windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>' id='com_windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('windshield_comment_<?php echo $row_windshield['goods_chk_windshield_id']; ?>')"></button>
             </div>
         <?php } ?>

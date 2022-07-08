@@ -42,6 +42,8 @@
                 <span name="car_door_comment_<?php echo $row_car_door['goods_chk_car_door_id']; ?>" id="car_door_comment_<?php echo $row_car_door['goods_chk_car_door_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_car_door_comment_<?php echo $row_car_door['goods_chk_car_door_id']; ?>' id='com_car_door_comment_<?php echo $row_car_door['goods_chk_car_door_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('car_door_comment_<?php echo $row_car_door['goods_chk_car_door_id']; ?>')"></button>
             </div>
         <?php } ?>

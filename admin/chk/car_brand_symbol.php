@@ -42,6 +42,8 @@
                 <span name="car_brand_symbol_comment_<?php echo $row_car_brand_symbol['goods_chk_car_brand_symbol_id']; ?>" id="car_brand_symbol_comment_<?php echo $row_car_brand_symbol['goods_chk_car_brand_symbol_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_car_brand_symbol_comment_<?php echo $row_car_brand_symbol['goods_chk_car_brand_symbol_id']; ?>' id='com_car_brand_symbol_comment_<?php echo $row_car_brand_symbol['goods_chk_car_brand_symbol_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('car_brand_symbol_comment_<?php echo $row_car_brand_symbol['goods_chk_car_brand_symbol_id']; ?>')"></button>
             </div>
         <?php } ?>

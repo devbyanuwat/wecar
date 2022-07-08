@@ -42,6 +42,8 @@
                 <span name="window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" id="window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>' id='com_window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('window_glass_comment_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>')"></button>
             </div>
         <?php } ?>

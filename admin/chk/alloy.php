@@ -42,6 +42,8 @@
                 <span name="alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" id="alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>' id='com_alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('alloy_comment_<?php echo $row_alloy['goods_chk_alloy_id']; ?>')"></button>
             </div>
         <?php } ?>

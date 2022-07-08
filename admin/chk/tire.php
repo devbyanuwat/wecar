@@ -44,6 +44,8 @@
                 <span name="tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>" id="tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>' id='com_tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('tire_comment_<?php echo $row_tire['goods_chk_tire_id']; ?>')"></button>
             </div>
         <?php } ?>

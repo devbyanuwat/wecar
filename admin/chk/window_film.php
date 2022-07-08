@@ -42,6 +42,8 @@
                 <span name="window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>" id="window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>' id='com_window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('window_film_comment_<?php echo $row_window_film['goods_chk_window_film_id']; ?>')"></button>
             </div>
         <?php } ?>

@@ -44,7 +44,7 @@
                 <span name="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
                     comment
                 </span>
-                <input type='text' name='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' id='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' value=''>
+                <input type='hidden' name='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' id='com_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>' value=''>
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')"></button>
             </div>
 

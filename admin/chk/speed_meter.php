@@ -40,6 +40,8 @@
                 <span name="speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" id="speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>' id='com_speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('speed_meter_comment_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>')"></button>
             </div>
         <?php } ?>

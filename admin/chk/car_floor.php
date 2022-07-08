@@ -40,6 +40,8 @@
                 <span name="car_floor_comment_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>" id="car_floor_comment_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_car_floor_comment_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>' id='com_car_floor_comment_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('car_floor_comment_<?php echo $row_car_floor['goods_chk_car_floor_id']; ?>')"></button>
             </div>
         <?php } ?>

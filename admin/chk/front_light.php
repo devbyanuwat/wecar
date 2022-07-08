@@ -42,6 +42,8 @@
                 <span name="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
                     comment
                 </span>
+                <input type='hidden' name='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' id='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')"></button>
             </div>
         <?php } ?>

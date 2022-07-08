@@ -40,12 +40,13 @@ echo "<table border='1'>
     <th>TABLE</th>
     <th>count</th>
     <th>id</th>
+    <th>SQL Result</th>
     </tr>
 ";
 $comment  = "";
 for ($i = 0; $i < count($table); $i++) {
     $count = $_POST['count_' . $table[$i]];
-
+    $qoute = $table[$i];
     echo "<tr>";
     echo "<td>";
     echo  $table[$i];
@@ -56,20 +57,31 @@ for ($i = 0; $i < count($table); $i++) {
     echo "<td>";
 
     for ($j = 1; $j <= $count; $j++) {
+
         $id = $_POST[$table[$i] . '_id_' . $j];
         $value = $_POST[$table[$i] . '_value_' . $j];
-        if (($_POST[$table[$i] . '_comment_' . $j]) != "") {
-            $comment = $_POST[$table[$i] . '_comment_' . $j];
+        if (($_POST['com_' . $table[$i] . '_comment_' . $j])) {
+            $comment = $_POST['com_' . $table[$i] . '_comment_' . $j];
+            // com_outside_comment_
         } else {
             $comment = "";
         }
+        $str = 'goods_chk_' . $qoute . '_id';
+        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('1', '$id', '$value')";
         echo  " ID => " . $id;
-        echo "\t";
+        echo "<br>";
         echo " VALUE => " . $value;
+        echo "<br>";
         echo " comment => " . $comment;
-
+        echo "<br>";
+        echo $sql;
+        echo "<br>";
+        echo "----------------";
         echo "<br>";
     }
+    echo "<td>";
+    echo $sql;
+    echo "</td>";
     echo "</td>";
     echo "</tr>";
 }

@@ -42,6 +42,8 @@
                 <span name="shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" id="shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>">
                     comment
                 </span>
+                <input type='text' name='com_shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>' id='com_shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>' value=''>
+
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('shock_absorber_comment_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>')"></button>
             </div>
         <?php } ?>

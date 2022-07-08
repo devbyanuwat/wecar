@@ -112,7 +112,96 @@
     $detail = "col-6 ps-4";
     ?>
 
+    <div class="d-flex justify-content-center">
+        <div class="bg-light shadow p-3 pt-3 rounded-3">
 
+            <div class="row">
+                <div class="col-5 m-4 p-3">
+                    <?php
+
+                    for ($i = 0; $i <  count($spec) / 2; $i++) {
+                        # code...
+                    ?>
+                        <div class="row">
+                            <div class="col-9">
+                                <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
+                            </div>
+                            <div class="col-3 d-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                                </div>
+
+                                <a onclick="goods_comment();" style="cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-danger" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </a>
+
+
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div class="col-5 m-4 p-3">
+                    <?php for ($i = 20; $i < 40; $i++) {
+                        # code...
+                    ?>
+                        <div class="row">
+                            <div class="col-9">
+                                <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
+                            </div>
+                            <div class="col-3 d-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                                </div>
+
+                                <a href="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-danger" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row ">
+                                <div class="col-10 d-flex">
+                                    <label for="spec99" class="form-label">ระบบป้องกันรถไหลเมื่อขึ้นทางลาด</label>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">มี</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">ไม่มี</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                                -->
+    </div>
 
 
     <div class="fs-2 text-start mb-4 fw-bold">
@@ -126,7 +215,7 @@
                     <?php include('chk/outside.php'); ?>
                     <br>
                     <?php include('chk/front_light.php'); ?>
-                    <!--   <br>
+                    <br>
                     <?php include('chk/fog_lamp.php'); ?>
                     <br>
                     <?php include('chk/ruby_bumper.php'); ?>
@@ -193,7 +282,7 @@
                     <br>
                     <?php include('chk/powertrain.php'); ?>
                     <br>
-                    <?php include('chk/cooling_system.php'); ?> -->
+                    <?php include('chk/cooling_system.php'); ?>
                 </div>
             </div>
         </div>
