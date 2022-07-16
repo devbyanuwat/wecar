@@ -68,7 +68,7 @@ for ($i = 0; $i < count($table); $i++) {
             $comment = "";
         }
         $str = 'goods_chk_' . $qoute . '_id';
-        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('3', '$id', '$value');";
+        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('1', '$id', '$value');";
         echo  " ID => " . $id;
         echo "<br>";
         echo " VALUE => " . $value;

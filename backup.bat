@@ -15,6 +15,7 @@ set TIMESTAMP=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
         echo NO - don't want to backup.
     ) else if errorlevel 6 (
         echo If there is no password, press Enter.
+
        :: md backup\%TIMESTAMP%
       ::  md backup\%TIMESTAMP%\sql
       ::  md backup\%TIMESTAMP%\doc

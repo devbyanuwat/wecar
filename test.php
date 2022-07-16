@@ -5,14 +5,29 @@ include('database/db.php');
 ?>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<div class="container">
-    <input type="text" name="tooltip" class="samplebox" data-toggle="tooltip" title="Ankit">
-    <button type="button" class="close" aria-label="Close">
+<!DOCTYPE html>
+<html>
 
-    </button>
+<body>
+
+    <?php
+    $key = "encryption key";
+    $text = "3";
+    $encrypted = bin2hex(openssl_encrypt($text, 'AES-128-CBC', $key));
+    $decrypted = openssl_decrypt(hex2bin($encrypted), 'AES-128-CBC', $key);
+    var_dump($encrypted, $decrypted);
+    ?>
+
+
+
     <script>
-        alert("update");
+        const id = urlParams.get('car')
+        if (id) {
+            console.log(id);
+        } else {
+            console.log("failed");
+        }
     </script>
-</div>
-<script src="style/validate.js"></script>
+</body>
+
+</html>

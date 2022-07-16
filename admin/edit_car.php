@@ -1,5 +1,15 @@
+<?php
+$id = $_GET['car'];
+
+$sql = "SELECT * FROM `goods` WHERE `goods_id` = $id";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+echo $row['goods_name'];
+echo "test $id";
+?>
+
 <form action="../database/add_goods.php" method="post" class="row g-3  needs-validation" novalidate>
-    <div class="fs-2 text-start mb-4 fw-bold">
+    <!-- <div class="fs-2 text-start mb-4 fw-bold">
         เพิ่มรถ
     </div>
     <div class="d-flex justify-content-center">
@@ -7,104 +17,20 @@
             <div class="row">
                 <div class="col-6 mb-3">
                     <label for="brand" class="form-label"> ยี่ห้อรถ</label>
-
-                    <select name="brand" id="brand" class="form-control form-select" onchange="change_brand();">
-                        <option selected disabled value="00">เลือกยี่ห้อรถ..</option>
+                    <select name="brand" id="brand" class="form-control form-select">
+                        <option selected disabled value="">เลือกยี่ห้อรถ..</option>
                         <?php
                         $sql_brand = "SELECT * FROM `brand`";
                         $result_brand = mysqli_query($conn, $sql_brand);
-                        $i = 1;
                         while ($row_brand = mysqli_fetch_assoc($result_brand)) {
                         ?>
-                            <option value="<?php echo strtolower($row_brand['brand_name']) ?>"><?php echo $row_brand['brand_name'] ?></option>
-                        <?php
-                            $i++;
-                        } ?>
+                            <option><?php echo $row_brand['brand_name'] ?></option>
+                        <?php } ?>
                     </select>
-
-                    <script>
-                        function change_brand() {
-                            var value = document.getElementById('brand').value;
-                            var name = document.getElementById('name');
-                            var i;
-                            if (value == "toyota") {
-                                $('#name').empty();
-                                var new_option = ['VIOS', 'ALTIS', 'CAMRY', 'FORTUNER', 'YARIS', 'AVANZA', 'INNOVA', 'COMMUTER', 'VIGO', 'TIGER'];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "honda") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "mitsubishi") {
-                                $('#name').empty();
-                                var new_option = ['', '', '', '', '', '', '', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "ford") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "mazda") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "mg") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "isuzu") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            } else if (value == "hyundai") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
-                            }
-                        }
-                    </script>
-
                 </div>
                 <div class="col-6 mb-3">
                     <label for="name" class="form-label">ชื่อรถ</label>
-
-                    <select name="name" id="name" class="form-select">
-                        <option name="" style="display:block ;" value="">เลือกยี่ห้อรถ..</option>
-
-                    </select>
-
-                    <!-- <input type="text" name="name" id="name" class="form-control" required> -->
+                    <input type="text" name="name" id="name" class="form-control" required>
                     <div class="invalid-feedback">
                         กรอกชื่อรถ
                     </div>
@@ -138,7 +64,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <div class="fs-2 text-start mb-4 fw-bold">
         สเปค
@@ -288,7 +214,10 @@
     </div>
 
 </form>
-
+<?php
+if ($id) {
+}
+?>
 <script>
     function add_comment(name) {
         Swal.fire({

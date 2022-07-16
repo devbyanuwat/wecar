@@ -21,6 +21,9 @@
                     include('standard.php');
                 } else if ($q == "add_car") {
                     include('add_car.php');
+                } else if ($q == "edit_car") {
+                    include('edit_car.php');
+                    include('');
                 }
                 ?>
 
@@ -67,6 +70,17 @@
 
         function show_comment() {
             alert("click");
+        }
+
+        const id = urlParams.get('car')
+        if (id) {
+            console.log(id);
+        } else {
+            console.log("failed");
+        }
+
+        function checkedValue() {
+
         }
     </script>
 

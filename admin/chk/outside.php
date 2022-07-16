@@ -1,6 +1,8 @@
 <div class="bg-light shadow p-3 pt-3 rounded-3">
     <div class="<?php echo $topic; ?>">
         ภายนอก
+        <br>
+        <?php echo $id; ?>
     </div>
     <div class="row">
         <div class="col-6 bg-light"></div>
@@ -15,7 +17,10 @@
         $sql_outside = "SELECT * FROM `goods_chk_outside`";
         $result_outside = mysqli_query($conn, $sql_outside);
         $count_outside =  mysqli_num_rows($result_outside);
+
         while ($row_outside = mysqli_fetch_assoc($result_outside)) {
+            $chk_id = $row_outside['goods_chk_outside_id'];
+
         ?>
 
             <div class="<?php echo $detail; ?>">
@@ -26,12 +31,44 @@
 
             </div>
             <div class="col-5 d-flex justify-content-between ">
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
-                </div>
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
-                </div>
+                <?php
+                if ($id > 0) {
+
+                    $sql_outside_value = "SELECT * FROM `chk_outside` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id";
+                    $result_outside_value = mysqli_query($conn, $sql_outside_value);
+                    $row_outside_value = mysqli_fetch_assoc($result_outside_value);
+
+
+
+                    if ($row_outside_value['goods_chk_status_id'] == 1) {
+                ?>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required checked>
+                        </div>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
+                        </div>
+                    <?php
+                    } else if ($row_outside_value['goods_chk_status_id'] == 2) {
+                    ?>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
+                        </div>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required checked>
+                        </div>
+                    <?php
+                    }
+                } else { ?>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
+                    </div>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
+                    </div>
+                <?php
+                }
+                ?>
 
                 <a style="cursor: pointer;" id="a_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" onclick="add_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
