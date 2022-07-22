@@ -1,6 +1,7 @@
 <div class="bg-light shadow p-3 pt-3 rounded-3">
     <div class="<?php echo $topic; ?>">
         ไฟหน้า
+        <br>
     </div>
     <div class="row">
         <div class="col-6 bg-light"></div>
@@ -14,10 +15,13 @@
         <?php
         $sql_front_light = "SELECT * FROM `goods_chk_front_light`";
         $result_front_light = mysqli_query($conn, $sql_front_light);
-        $count_front_light = mysqli_num_rows($result_front_light);
+        $count_front_light =  mysqli_num_rows($result_front_light);
+
         while ($row_front_light = mysqli_fetch_assoc($result_front_light)) {
             $chk_id = $row_front_light['goods_chk_front_light_id'];
+
         ?>
+
             <div class="<?php echo $detail; ?>">
                 <div class="row">
                     <input type="hidden" name="front_light_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_id_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" value="<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
@@ -32,6 +36,7 @@
                     $sql_front_light_value = "SELECT * FROM `chk_front_light` WHERE `goods_id` = $id AND `goods_chk_front_light_id` = $chk_id";
                     $result_front_light_value = mysqli_query($conn, $sql_front_light_value);
                     $row_front_light_value = mysqli_fetch_assoc($result_front_light_value);
+
 
                     if ($row_front_light_value['goods_chk_status_id'] == 1) {
                 ?>
@@ -52,34 +57,75 @@
                         </div>
                     <?php
                     }
-                } else { ?>
-                    <div class="form-check form-check-inline ">
-                        <input class="form-check-input" type="radio" name="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" value="1" required>
-                    </div>
-                    <div class="form-check form-check-inline ">
-                        <input class="form-check-input" type="radio" name="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" value="2" required>
-                    </div>
-                <?php
-                }
 
-
-                ?>
-                <a style="cursor: pointer ;" id="a_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" onclick="add_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')" disabled>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                </a>
+                    $sql_com = "SELECT * FROM `goods_chk_front_light_comment` WHERE `goods_id` = $id AND `goods_chk_front_light_id` = $chk_id";
+                    $result_com = mysqli_query($conn, $sql_com);
+                    $row_com = mysqli_fetch_assoc($result_com);
+                    $comm = $row_com['goods_chk_comment'];
+                    if ($row_com['goods_chk_comment']) {
+                    ?>
+                        <a style="cursor: pointer;" id="a_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" onclick="add_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </a>
             </div>
-            <div style="display:none;" class="text-end text-secondary fs-6 " id="c_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+            <div style="display:block;" class="text-end text-secondary fs-6 " id="c_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
                 <span name="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
-                    comment
+                    <?php echo $comm ?>
                 </span>
-                <input type='hidden' name='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' id='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' value=''>
-
+                <input type='hidden' name='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' id='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' value='<?php echo $comm ?>'>
                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')"></button>
             </div>
-        <?php } ?>
-        <input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_front_light; ?>">
+        <?php
+                    } else {
+        ?>
+            <a style="cursor: pointer;" id="a_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" onclick="add_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </a>
     </div>
+    <div style="display:none;" class="text-end text-secondary fs-6 " id="c_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+        <span name="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+            <?php echo $comm ?>
+        </span>
+        <input type='hidden' name='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' id='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' value='<?php echo $comm ?>'>
+        <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')"></button>
+    </div> <?php
+                    }
+                } else { ?>
+<div class="form-check form-check-inline ">
+    <input class="form-check-input" type="radio" name="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" value="1" required>
+</div>
+<div class="form-check form-check-inline ">
+    <input class="form-check-input" type="radio" name="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_value_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" value="2" required>
+</div>
+
+
+
+<a style="cursor: pointer;" id="a_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" onclick="add_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+    </svg>
+</a>
+</div>
+<div style="display:none;" class="text-end text-secondary fs-6 " id="c_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+    <span name="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>" id="front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>">
+        comment
+    </span>
+    <input type='hidden' name='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' id='com_front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>' value=''>
+    <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('front_light_comment_<?php echo $row_front_light['goods_chk_front_light_id']; ?>')"></button>
+</div>
+<?php
+                }
+?>
+
+
+<?php } ?>
+<input type="hidden" name="count_front_light" id="count_front_light" value="<?php echo $count_front_light; ?>">
+</div>
 </div>

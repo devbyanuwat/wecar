@@ -1,13 +1,99 @@
-<?php include('header.php');
+<?php
+include('header.php');
+include('database/db.php');
+$spec = array(
+    //col 1
+    "ถุงลมนิรภัย",
+    "ระบบควบคุมการทรงตัว",
+    "ระบบป้องกันการโจรกรรม",
+    "ระบบตรวจสอบจุดอับสายตา",
+    "ระบบติดตั้งคาร์ซีทสำหรับเด็ก",
+    "ระบบล็อคสำหรับเด็ก",
+    "ระบบเตือนการชน",
+    "ไฟหน้า",
+    "ไฟท้าย",
+    "ไฟตัดหมอกหน้า",
+    "ไฟตัดหมอกหลัง",
+    "ไฟ LED กลางวัน",
+    "เบาะหน้า",
+    "เบาะหลัง",
+    "หลังคารับแสง",
+    "ไฟในรถ",
+    "ที่บังแดด",
+    "ปลั๊กไฟ",
+    "ที่วางแก้วน้ำ",
+    "หน้าต่างไฟฟ้า",
+    //col 2
+    "ระบบป้องกันรถไหลเมื่อขึ้นทางลาด",
+    "บลูทูธ",
+    "ระบบนำทาง",
+    "ไฟหน้าอัตโนมัติ",
+    "ที่ปัดน้ำฝนอัตโนมัติ",
+    "เซ็นเซอร์จอดด้านหน้า",
+    "เซ็นเซอร์จอดด้านหลัง",
+    "กล้องถอย",
+    "ประตูไฟฟ้า",
+    "Boot Operation",
+    "เกียร์ที่พวงมาลัย",
+    "เบรกมือ",
+    "ระบบคุมความเร็วอัตโนมัติ",
+    "เกียร์ทิปทรอนิค",
+    "ระบบควบคุมเสียงที่พวงมาลัย",
+    "ที่ปรับของพวงมาลัยไฟฟ้า",
+    "ที่ปรับของพวงมาลัยไฟฟ้า",
+    "ระบบจอดอัตโนมัติ",
+    "กระจกมองหลังนอกรถ",
+    "แผงหน้าปัด",
+);
+$id = $_GET['car'];
 ?>
 
 <body>
     <?php include('nav-bar.php'); ?>
     <div class="container">
         <div class="row">
-            <div class="m-3">
-                <div class="bg-warning shadow" style="height:560px ;">
+
+            <div class="bg-light shadow p-3 m-3">
+
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <?php
+                        $sql_img = "SELECT * FROM `goods_img` WHERE `goods_id` = $id";
+                        $result_img = mysqli_query($conn, $sql_img);
+                        $nums = 1;
+                        while ($row_img = mysqli_fetch_assoc($result_img)) {
+                            $img_src = $row_img['goods_img_src'];
+                        ?>
+
+                            <div id="img_<?php echo $nums ?>" class="carousel-item img-fluid ">
+                                <div class="text-center">
+                                    <img src="img/goods/<?php echo $img_src; ?>" class="d-block rounded" width="100%">
+                                </div>
+                            </div>
+
+                        <?php
+                            $nums++;
+                        }
+                        ?>
+                        <script>
+                            window.onload = src_img();
+
+                            function src_img() {
+                                document.getElementById('img_1').classList.add("active");
+                            }
+                        </script>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
             </div>
         </div>
         <div class="row">
@@ -27,94 +113,117 @@
                             <div class="row">
                                 <div class="col-6">
                                     <ul class="list-group">
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-success text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end">
-                                                    7(คู่หน้า/ด้านข้าง/เข่าฝั่งคนขับ/ม่านถุงลมนิรภัย)
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-success text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end">
-                                                    7(คู่หน้า/ด้านข้าง/เข่าฝั่งคนขับ/ม่านถุงลมนิรภัย)
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-success text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end">
-                                                    7(คู่หน้า/ด้านข้าง/เข่าฝั่งคนขับ/ม่านถุงลมนิรภัย)
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <?php
+                                        for ($i = 0; $i <  20; $i++) {
+                                            # code...
+
+                                            $sql = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id";
+                                            mysqli_query($conn, $sql);
+                                            $row = mysqli_fetch_assoc($result);
+
+                                        ?>
+                                            <li class="list-group-item border-bottom">
+                                                <div class="d-flex jsutify-content-between">
+
+
+                                                    <?php
+                                                    $sql_com = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i";
+                                                    $result_com = mysqli_query($conn, $sql_com);
+                                                    $row_comm = mysqli_fetch_assoc($result_com);
+                                                    $comm = $row_comm['spec_comment_detail'];
+
+                                                    if ($comm) {
+                                                    ?>
+                                                        <div class="col-1 text-danger text-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle " viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                                            </svg>
+                                                        </div>
+
+
+                                                        <div class="col-7"><?php echo $spec[$i] ?></div>
+                                                        <div class="col-4 text-end text-danger">
+                                                        <?php
+                                                        echo $comm;
+                                                    } else {
+                                                        ?>
+                                                            <div class="col-1 text-success text-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                                                </svg>
+                                                            </div>
+
+
+                                                            <div class="col-7"><?php echo $spec[$i] ?></div>
+                                                            <div class="col-4 text-end">
+                                                            <?php
+                                                        }
+
+                                                            ?>
+                                                            </div>
+                                                        </div>
+                                            </li>
+                                        <?php } ?>
+
                                     </ul>
                                 </div>
                                 <div class="col-6">
                                     <ul class="list-group">
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-success text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end">
-                                                    7(คู่หน้า/ด้านข้าง/เข่าฝั่งคนขับ/ม่านถุงลมนิรภัย)
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-danger text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle " viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end text-danger">
-                                                    ไม่ได้ระบุ
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item border-bottom">
-                                            <div class="d-flex jsutify-content-between">
-                                                <div class="col-1 text-success text-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="col-5"> ถุงลมนิรภัย</div>
-                                                <div class="col-6 text-end">
-                                                    7(คู่หน้า/ด้านข้าง/เข่าฝั่งคนขับ/ม่านถุงลมนิรภัย)
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <?php
+                                        for ($i = 20; $i <  40; $i++) {
+                                            # code...
+
+                                            $sql = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id";
+                                            mysqli_query($conn, $sql);
+                                            $row = mysqli_fetch_assoc($result);
+
+                                        ?>
+                                            <li class="list-group-item border-bottom">
+                                                <div class="d-flex jsutify-content-between">
+
+                                                    <?php
+                                                    $sql_com = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i";
+                                                    $result_com = mysqli_query($conn, $sql_com);
+                                                    $row_comm = mysqli_fetch_assoc($result_com);
+                                                    $comm = $row_comm['spec_comment_detail'];
+
+                                                    if ($comm) {
+                                                    ?>
+                                                        <div class="col-1 text-danger text-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle " viewBox="0 0 16 16">
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                                            </svg>
+                                                        </div>
+
+
+                                                        <div class="col-7"><?php echo $spec[$i] ?></div>
+                                                        <div class="col-4 text-end text-danger">
+                                                        <?php
+                                                        echo $comm;
+                                                    } else {
+                                                        ?>
+                                                            <div class="col-1 text-success text-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                                                </svg>
+                                                            </div>
+
+
+                                                            <div class="col-7"><?php echo $spec[$i] ?></div>
+                                                            <div class="col-4 text-end">
+                                                            <?php
+                                                        }
+
+                                                            ?>
+                                                            </div>
+                                                        </div>
+                                            </li>
+                                        <?php } ?>
+
                                     </ul>
                                 </div>
                             </div>
@@ -126,137 +235,13 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="m-3">
-                <div class="bg-light shadow p-3">
-                    <div class="row">
-                        <div class="col-3 text-center bg-primary shadow-lg p-3 m-3 text-white rounded-3">
-                            <img src="img/goods/Pajero_sport.png" alt="">
-                            <div class="fs-3">คุณต้องการสินเชื่อ</div>
-                            <center>
-                                <div class="col-12 ">
-                                    <hr class="bg-danger border-5 border-top border-danger " width=" 50px">
-                                </div>
-                            </center>
-                            <div class="fs-3">เพื่อรถคันนี้ไหม</div>
-                        </div>
-                        <div class="col-8  bg-light shadow-lg p-3 m-3 rounded-3">
-                            <div class="row">
-                                <div class="col-4 m-3">
-                                    <div class="fs-3 fw-bold">
-                                        คำนวณสินเชื่อรถยนต์
-                                    </div>
-                                    <br>
-                                    <div class="fs-5">
-                                        ค่าผ่อนชำระต่อเดือน
-                                    </div>
-                                    <div class="d-flex ">
-                                        <div class="fs-3 fw-bold"> ฿ 21,466</div>
-                                        <div class="fs-5 ">/ เดือน</div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="fs-6">ยอดเงินกู้</div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="fs-6 fw-bold">฿ 1,386,720</div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="fs-6">หมายเหตุ : การคำนวณนี้เป็นการประมาณ
-                                        ยอดเงินสินเชื่อเท่านั้น โดยวงเงินตามจริงนั้น
-                                        จะขึ้นอยู่กับเครดิตของแต่ละบุคคลและบางกรณี</div>
-                                </div>
 
-
-
-                                <div class="col-7 m-3">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="fs-6 fw-bold">
-                                                เลือกข้อเสนอ
-                                            </div>
-                                        </div>
-                                        <div class="col-6 text-end">
-                                            <div class="dropdown">
-                                                <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Dropdown link
-                                                </a>
-
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="fs-6 fw-bold">
-                                                เลือกจำนวนเงินดาวน์
-                                            </div>
-                                        </div>
-                                        <div class="col-6 ">
-                                            <div class="input-group mb-3">
-                                                <input type="text" style="pointer-events: none" class="form-control text-end fw-bold" value="0" aria-label="" aria-describedby="basic-addon2">
-                                                <span class="input-group-text" id="basic-addon2">บาท</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <input type="range" width="70%" class="form-range" value="0" id="customRange2">
-                                            <style>
-                                                input[type=range]::-webkit-slider-thumb {
-                                                    background: orange;
-                                                }
-
-                                                input[type=range]::-moz-range-thumb {
-                                                    background: orange;
-                                                }
-
-                                                input[type=range]::-ms-thumb {
-                                                    background: orange;
-                                                }
-                                            </style>
-                                        </div>
-                                        <div class="col-12 d-flex justify-content-between fw-bold">
-                                            <div class="fs-6">0%</div>
-                                            <div class="fs-6">10%</div>
-                                            <div class="fs-6">20%</div>
-                                            <div class="fs-6">30%</div>
-                                            <div class="fs-6">40%</div>
-                                            <div class="fs-6">50%</div>
-                                        </div>
-                                    </div>
-                                    <br>
-
-                                    <div class="fs-6">ระยะเวลาผ่อน (เดือน)</div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12 d-flex justify-content-between">
-                                            <button class="btn btn-outline-primary m-2 active">24</button>
-                                            <button class="btn btn-outline-primary m-2">36</button>
-                                            <button class="btn btn-outline-primary m-2">48</button>
-                                            <button class="btn btn-outline-primary m-2">60</button>
-                                            <button class="btn btn-outline-primary m-2">72</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
+
 
 </body>
+<footer>
+    <?php include('cal_credit.php'); ?>
+</footer>
 
 </html>

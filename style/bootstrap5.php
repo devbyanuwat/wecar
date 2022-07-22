@@ -16,4 +16,15 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    function success(href) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(function() {
+            window.location = href;
+        })
+    }
 </script>

@@ -1,4 +1,4 @@
-<form action="../database/add_goods.php" method="post" class="row g-3  needs-validation" novalidate>
+<form action="../database/add_goods.php" method="post" class="row g-3 needs-validation" enctype='multipart/form-data' novalidate>
     <div class="fs-2 text-start mb-4 fw-bold">
         เพิ่มรถ
     </div>
@@ -9,7 +9,7 @@
                     <label for="brand" class="form-label"> ยี่ห้อรถ</label>
 
                     <select name="brand" id="brand" class="form-control form-select" onchange="change_brand();">
-                        <option selected disabled value="00">เลือกยี่ห้อรถ..</option>
+                        <option selected disabled>เลือกยี่ห้อรถ..</option>
                         <?php
                         $sql_brand = "SELECT * FROM `brand`";
                         $result_brand = mysqli_query($conn, $sql_brand);
@@ -28,69 +28,28 @@
                             var name = document.getElementById('name');
                             var i;
                             if (value == "toyota") {
-                                $('#name').empty();
                                 var new_option = ['VIOS', 'ALTIS', 'CAMRY', 'FORTUNER', 'YARIS', 'AVANZA', 'INNOVA', 'COMMUTER', 'VIGO', 'TIGER'];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
                             } else if (value == "honda") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['CITY', 'JAZZ', 'ACCORD', 'CIVIC', 'CRV', 'FREED', 'BRIO', 'AMAZE'];
                             } else if (value == "mitsubishi") {
-                                $('#name').empty();
-                                var new_option = ['', '', '', '', '', '', '', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['LANCER EX', 'LANCER', 'PAJERO', 'MIRAGE', 'ATTAGE', 'SPACE WAGON', 'TRITON', 'STRADA'];
                             } else if (value == "ford") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['FOCUS', 'FIESTA', 'ESCAPE', 'LASER', 'EVEREST', 'ECOSPORT', 'RANGER'];
                             } else if (value == "mazda") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['MAZDA2', 'MAZDA3', 'CX5', 'CX3', 'CX9', 'BT50', 'FIGHTER'];
                             } else if (value == "mg") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['ZS', 'HS', 'MG3'];
                             } else if (value == "isuzu") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['MU-7', 'MU-X', 'DMAX', 'DRAGON'];
                             } else if (value == "hyundai") {
-                                $('#name').empty();
-                                var new_option = ['', ''];
-
-                                for (i = 0; i < new_option.length; i++) {
-                                    var op = new Option(new_option[i], i);
-                                    name.options.add(op);
-                                }
+                                var new_option = ['H1'];
+                            } else if (value == "nissan") {
+                                var new_option = ['ALMERA', 'MARCH', 'TEANA', 'SYLPHY', 'SUNNY NEO', 'JUKE', 'CEFIRO', 'TIIDA', 'รถกระบะ NAVARA', 'รถกระบะ FRONTIER', ];
+                            }
+                            $('#name').empty();
+                            for (i = 0; i < new_option.length; i++) {
+                                var op = new Option(new_option[i], new_option[i]);
+                                name.options.add(op);
                             }
                         }
                     </script>
@@ -112,22 +71,23 @@
                 <div class="col-3 mb-3">
                     <label for="years" class="form-label">ปีรถ</label>
                     <input type="text" name="years" id="years" maxlength="4" pattern="[0-9]{1,4}" class="form-control" required>
-
-
                 </div>
-                <div class="col-6 mb-3 ">
+
+                <div class="col-5 mb-3 ">
                     <label for="price" class="form-label">ราคา</label>
                     <div class="input-group flex-nowrap">
-
-
-                        <input type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[1-9]{1,9}" maxlength="9" required>
+                        <input type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[1-9]{0,9}" maxlength="9" required>
                         <span class="input-group-text" id="price">฿</span>
-
                     </div>
                 </div>
 
+                <div class="col-12 mb-3">
+                    <lable for="advert" class="form-label">โฆษณา</lable>
+                    <textarea class="form-control" name="advert" id="advert" cols="10" rows="3"></textarea>
+                </div>
+
                 <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="file" name="file" multiple required>
+                    <input type="file" class="form-control" name="filUpload[]" id="filUpload" multiple>
                     <label class="input-group-text" for="file">Upload</label>
                 </div>
                 <div class="col-12 mb-3">
@@ -191,10 +151,111 @@
     $topic = "fs-5 text-start mb-2";
     $detail = "col-6 ps-4";
     ?>
+    <div class="d-flex justify-content-center">
+        <div class="bg-light shadow p-3 pt-3 rounded-3">
+
+            <div class="row">
+                <div class="col-5 m-4 p-3">
+                    <?php
+
+                    for ($i = 0; $i <  count($spec) / 2; $i++) {
+                        # code...
+                    ?>
+                        <div class="row">
+                            <div class="col-9">
+                                <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
+                            </div>
+                            <div class="col-3 d-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                                </div>
+
+                                <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+                                <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
+                                    comment
+                                </span>
+                                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
+
+                                <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
+                            </div>
 
 
+                        </div>
+                    <?php } ?>
+                </div>
 
+                <div class="col-5 m-4 p-3">
+                    <?php for ($i = 20; $i < 40; $i++) {
+                        # code...
+                    ?>
+                        <div class="row">
+                            <div class="col-9">
+                                <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
+                            </div>
+                            <div class="col-3 d-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required checked>
+                                    <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                                </div>
 
+                                <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                            <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+                                <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
+                                    comment
+                                </span>
+                                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
+                                <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row ">
+                                <div class="col-10 d-flex">
+                                    <label for="spec99" class="form-label">ระบบป้องกันรถไหลเมื่อขึ้นทางลาด</label>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">มี</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">ไม่มี</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                                -->
+    </div>
     <div class="fs-2 text-start mb-4 fw-bold">
         ตรวจสอบสภาพรถ
     </div>
@@ -210,10 +271,10 @@
                     <?php include('chk/fog_lamp.php'); ?>
                     <br>
                     <?php include('chk/ruby_bumper.php'); ?>
-                    <!--   <br>
+                    <br>
                     <?php include('chk/windshield.php'); ?>
                     <br>
-                    <?php include('chk/front_fender.php'); ?>
+                    <!--  <?php include('chk/front_fender.php'); ?>
                     <br>
                     <?php include('chk/car_door.php'); ?>
                     <br>
@@ -292,7 +353,7 @@
 <script>
     function add_comment(name) {
         Swal.fire({
-            title: "ระบุสาเหตุ" + name,
+            title: "ระบุสาเหตุ",
             icon: 'info',
             input: 'text',
             showCancelButton: true

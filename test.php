@@ -11,23 +11,22 @@ include('database/db.php');
 <body>
 
     <?php
-    $key = "encryption key";
-    $text = "3";
-    $encrypted = bin2hex(openssl_encrypt($text, 'AES-128-CBC', $key));
-    $decrypted = openssl_decrypt(hex2bin($encrypted), 'AES-128-CBC', $key);
-    var_dump($encrypted, $decrypted);
-    ?>
-
-
-
-    <script>
-        const id = urlParams.get('car')
-        if (id) {
-            console.log(id);
-        } else {
-            console.log("failed");
+    if (isset($_POST['submit'])) {
+        $countfiles = count($_FILES['file']['name']);
+        for ($i = 0; $i < $countfiles; $i++) {
+            $filename = $_FILES['file']['name'][$i];
+            // $sql = "INSERT INTO fileup(id,name) VALUES ('$filename','$filename')";
+            // $db->query($sql);
+            // move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/' . $filename);
+            echo $filename;
         }
-    </script>
+    }
+    ?>
+    <form method='post' action='' enctype='multipart/form-data'>
+        <input type="file" name="file[]" id="file" multiple>
+        <input type='submit' name='submit' value='Upload'>
+    </form>
+
 </body>
 
 </html>

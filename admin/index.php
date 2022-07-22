@@ -26,7 +26,6 @@
                     include('');
                 }
                 ?>
-
             </div>
         </div>
     </div>
@@ -68,6 +67,13 @@
             }
         }
 
+        function change_status() {
+            alert();
+
+
+        }
+
+
         function show_comment() {
             alert("click");
         }
@@ -78,10 +84,76 @@
         } else {
             console.log("failed");
         }
+    </script>
+    <script>
+        function change_status(id) {
+            (async () => {
 
-        function checkedValue() {
+                /* inputOptions can be an object or Promise */
+                const inputOptions = new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            '0': 'อยู่ในคลัง',
+                            '1': 'ประกาศขาย',
+                            '2': 'ขายแล้ว',
+                        })
+                    }, 1000)
+                })
+
+                const {
+                    value: color
+                } = await Swal.fire({
+                    title: 'Select what you performed.',
+                    input: 'radio',
+                    showCloseButton: true,
+                    inputOptions: inputOptions,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'You need to choose something!'
+                        } else {
+
+                            window.location = "../database/change_status.php?id=" + id + "&status=" + value;
+
+                        }
+
+                    }
+                })
+            })()
+        }
+
+        function del_goods(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    // window.location = "?id=" + id;
+                    jQuery.ajax({
+                        type: "POST",
+                        url: "../database/del_goods.php",
+                        data: 'id=' + id,
+                        cache: false,
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Deleted!',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 1500,
+                            }).then(
+                                function() {
+                                    location.reload();
+                                })
+                        }
+                    });
+                }
+            })
 
         }
     </script>
-
     <script src="../style/validate.js"></script>
+</body>

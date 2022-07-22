@@ -53,8 +53,7 @@ if (!$conn) {
 // sql to create table
 for ($i = 0; $i < count($table); $i++) {
     # code...
-
-    $sql = "CREATE TABLE `weusecar`.`chk_$table[$i]` ( `goods_id` INT(11) NOT NULL , `goods_chk_$table[$i]_id` INT(11) NOT NULL , `goods_chk_status_id` INT(11) NOT NULL , PRIMARY KEY (`goods_id`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE `weusecar`.`goods_chk_$table[$i]_comment` ( `goods_id` INT(11) NOT NULL , `goods_chk_$table[$i]_id` INT(11) NOT NULL , `goods_chk_comment` VARCHAR(255) NOT NULL ) ENGINE = InnoDB;";
     // $sql = "CREATE TABLE `weusecar`.`goods_chk_$table[$i]` ( `goods_chk_$table[$i]_id` INT NOT NULL AUTO_INCREMENT , `goods_chk_$table[$i]_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`goods_chk_$table[$i]_id`)) ENGINE = InnoDB";
 
     // echo $sql;
