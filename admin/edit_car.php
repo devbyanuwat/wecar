@@ -96,7 +96,7 @@ $detail = $row['goods_detail'];
                 <div class="col-5 mb-3 ">
                     <label for="price" class="form-label">ราคา</label>
                     <div class="input-group flex-nowrap">
-                        <input value="<?php echo $price ?>" type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[1-9]{0,9}" maxlength="9" required>
+                        <input value="<?php echo $price ?>" type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[0-9]{1,9}" maxlength="9" required>
                         <span class="input-group-text" id="price">฿</span>
                     </div>
                 </div>
@@ -405,7 +405,7 @@ $detail = $row['goods_detail'];
 
     <div class="row">
         <div class="d-flex justify-content-end mt-4">
-            <button type="submit" class="btn btn-primary me-3">Add</button>
+            <button type="submit" class="btn btn-success me-3">Edit</button>
             <button type="button" class="btn btn-outline-danger me-3">Cancel</button>
         </div>
     </div>

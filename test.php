@@ -9,23 +9,61 @@ include('database/db.php');
 <html>
 
 <body>
+    <!DOCTYPE html>
+    <html>
 
-    <?php
-    if (isset($_POST['submit'])) {
-        $countfiles = count($_FILES['file']['name']);
-        for ($i = 0; $i < $countfiles; $i++) {
-            $filename = $_FILES['file']['name'][$i];
-            // $sql = "INSERT INTO fileup(id,name) VALUES ('$filename','$filename')";
-            // $db->query($sql);
-            // move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/' . $filename);
-            echo $filename;
-        }
-    }
-    ?>
-    <form method='post' action='' enctype='multipart/form-data'>
-        <input type="file" name="file[]" id="file" multiple>
-        <input type='submit' name='submit' value='Upload'>
-    </form>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* Style the buttons */
+            .btn {
+                border: none;
+                outline: none;
+                padding: 10px 16px;
+                background-color: #f1f1f1;
+                cursor: pointer;
+                font-size: 18px;
+            }
+
+            /* Style the active class, and buttons on mouse-over */
+            .active,
+            .btn:hover {
+                background-color: blue;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Active Button</h1>
+        <p>Highlight the active/current (pressed) button.</p>
+
+        <div id="myDIV">
+            <button class="btn">1</button>
+            <button class="btn active">2</button>
+            <button class="btn">3</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+        </div>
+
+        <script>
+            // Add active class to the current button (highlight it)
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+        </script>
+
+    </body>
+
+    </html>
+
 
 </body>
 

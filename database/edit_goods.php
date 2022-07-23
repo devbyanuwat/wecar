@@ -52,7 +52,7 @@ $detail = $_POST['detail'];
         <th>
             <?php
             $sql_goods = "INSERT INTO `goods` (`goods_id`, `brand_id`, `goods_name`, `goods_year`, `goods_price`, `goods_detail`, `goods_advert`, `goods_status`) VALUES (NULL, '$brand_id', '$name', '$years', '$price', '$detail', '$advert', '0')";
-            $result_goods = mysqli_query($conn, $sql_goods);
+            // $result_goods = mysqli_query($conn, $sql_goods);
             $last_id = mysqli_insert_id($conn);
             echo $last_id;
             ?>
@@ -61,17 +61,7 @@ $detail = $_POST['detail'];
     <tr>
         <th>file</th>
         <th><?php
-            if (isset($_FILES["filUpload"])) {
-                $countfiles = count($_FILES['filUpload']['name']);
-                for ($i = 0; $i < $countfiles; $i++) {
-                    $filename = $_FILES['filUpload']['name'][$i];
-                    // echo $filename;
-                    $sql = "INSERT INTO `goods_img` (`goods_img_id`, `goods_id`, `goods_img_src`) VALUES (NULL, '$last_id', '$filename')";
-                    mysqli_query($conn, $sql);
-                    copy($_FILES['filUpload']['tmp_name'][$i], "../img/goods/" . $filename);
-                }
-                echo "Copy/Upload Complete";
-            }
+
             ?> </th>
     </tr>
 </table>
@@ -82,16 +72,17 @@ $spec_count = 40;
 for ($i = 0; $i < $spec_count; $i++) {
     echo $i . "\t";
     $status =  $_POST['spec' . $i];
+    echo $status;
     $comment = $_POST['com_spec_comment_' . $i];
     if ($comment) {
         $sql = "INSERT INTO `spec_comment` (`goods_id`, `chk_spec_id`, `spec_comment_detail`) VALUES ('$last_id', '$i', '$comment')";
-        mysqli_query($conn, $sql);
+        // mysqli_query($conn, $sql);
     } else {
         echo "not found";
     }
     echo "<br>";
     $sql = "INSERT INTO `chk_spec` (`goods_id`, `chk_spec_id`, `chk_spec_status`) VALUES ('$last_id', '$i', '$status')";
-    mysqli_query($conn, $sql);
+    // mysqli_query($conn, $sql);
 }
 
 ?>
@@ -160,12 +151,12 @@ for ($i = 0; $i < count($table); $i++) {
         if (($_POST['com_' . $table[$i] . '_comment_' . $j])) {
             $comment = $_POST['com_' . $table[$i] . '_comment_' . $j];
             $sql = "INSERT INTO `goods_chk_$table[$i]_comment` (`goods_id`, `goods_chk_$table[$i]_id`, `goods_chk_comment`) VALUES ('$last_id', '$id', '$comment')";
-            mysqli_query($conn, $sql);
+            // mysqli_query($conn, $sql);
         } else {
             $comment = "";
         }
         $str = 'goods_chk_' . $qoute . '_id';
-        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
+        // $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
         echo  " ID => " . $id;
         echo "<br>";
         echo " VALUE => " . $value;
@@ -180,7 +171,7 @@ for ($i = 0; $i < count($table); $i++) {
             $status =  "$table[$i] successfully";
 ?>
             <script>
-                success("../admin/");
+                // success("../admin/");
             </script>
 <?php
         } else {
