@@ -8,6 +8,8 @@ $result_brand = mysqli_query($conn, $get_brand);
 $row_brand = mysqli_fetch_assoc($result_brand);
 $brand_id = $row_brand['brand_id'];
 
+$id = $_POST['id'];
+$last_id = $id;
 $name = $_POST['name'];
 $years = $_POST['years'];
 $price = $_POST['price'];
@@ -21,10 +23,14 @@ $detail = $_POST['detail'];
 
 ?>
 
-<table class="table border">
+<table class="table table-bordered table-striped table-hover">
     <tr>
         <th>symbol</th>
         <th>value</th>
+    </tr>
+    <tr>
+        <th>ID</th>
+        <th><?php echo $last_id; ?></th>
     </tr>
     <tr>
         <th>name</th>
@@ -51,10 +57,12 @@ $detail = $_POST['detail'];
         <th>sql</th>
         <th>
             <?php
-            $sql_goods = "INSERT INTO `goods` (`goods_id`, `brand_id`, `goods_name`, `goods_year`, `goods_price`, `goods_detail`, `goods_advert`, `goods_status`) VALUES (NULL, '$brand_id', '$name', '$years', '$price', '$detail', '$advert', '0')";
-            // $result_goods = mysqli_query($conn, $sql_goods);
-            $last_id = mysqli_insert_id($conn);
-            echo $last_id;
+            $sql_goods = "UPDATE `goods` SET `brand_id` = '$brand_id', `goods_name` = '$name', `goods_year` = '$years', `goods_price` = '$price', `goods_detail` = '$detail', `goods_advert` = '$advert' WHERE `goods`.`goods_id` = $id";
+            if (mysqli_query($conn, $sql_goods)) {
+                echo "success";
+            }
+            // $last_id = mysqli_insert_id($conn);
+            // echo $last_id;
             ?>
         </th>
     </tr>
@@ -76,13 +84,15 @@ for ($i = 0; $i < $spec_count; $i++) {
     $comment = $_POST['com_spec_comment_' . $i];
     if ($comment) {
         $sql = "INSERT INTO `spec_comment` (`goods_id`, `chk_spec_id`, `spec_comment_detail`) VALUES ('$last_id', '$i', '$comment')";
-        // mysqli_query($conn, $sql);
+        mysqli_query($conn, $sql);
+        echo $sql;
     } else {
+        $comment = "";
         echo "not found";
     }
     echo "<br>";
     $sql = "INSERT INTO `chk_spec` (`goods_id`, `chk_spec_id`, `chk_spec_status`) VALUES ('$last_id', '$i', '$status')";
-    // mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
 }
 
 ?>
@@ -123,7 +133,7 @@ $table = [
     'powertrain',
     'cooling_system'
 ];
-echo "<table border='1'>
+echo "<table class='table table-bordered table-striped table-hover'>
     <tr>
     <th>TABLE</th>
     <th>count</th>
@@ -151,28 +161,29 @@ for ($i = 0; $i < count($table); $i++) {
         if (($_POST['com_' . $table[$i] . '_comment_' . $j])) {
             $comment = $_POST['com_' . $table[$i] . '_comment_' . $j];
             $sql = "INSERT INTO `goods_chk_$table[$i]_comment` (`goods_id`, `goods_chk_$table[$i]_id`, `goods_chk_comment`) VALUES ('$last_id', '$id', '$comment')";
-            // mysqli_query($conn, $sql);
+            mysqli_query($conn, $sql);
         } else {
             $comment = "";
+            $sql = "";
         }
         $str = 'goods_chk_' . $qoute . '_id';
-        // $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
+        $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
         echo  " ID => " . $id;
         echo "<br>";
         echo " VALUE => " . $value;
         echo "<br>";
         echo " comment => " . $comment;
         echo "<br>";
-        echo $sql;
+        echo " sql => " . $sql;
         echo "<br>";
         echo "----------------";
         echo "<br>";
         if (mysqli_query($conn, $sql)) {
             $status =  "$table[$i] successfully";
 ?>
-            <script>
-                // success("../admin/");
-            </script>
+            <!-- <script>
+                success("../admin/");
+            </script> -->
 <?php
         } else {
             $status =  "Error INSERT table: " . $table[$i] . " " . mysqli_error($conn);

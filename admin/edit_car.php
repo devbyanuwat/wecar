@@ -20,6 +20,7 @@ $detail = $row['goods_detail'];
 
 ?>
 <form action="../database/edit_goods.php" method="post" class="row g-3 needs-validation" enctype='multipart/form-data' novalidate>
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
     <div class="fs-2 text-start mb-4 fw-bold">
         เพิ่มรถ
     </div>
@@ -180,9 +181,14 @@ $detail = $row['goods_detail'];
 
                     for ($i = 0; $i <  count($spec) / 2; $i++) {
                         # code...
-                        $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i";
+                        $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `chk_spec`.`chk_spec_status` DESC";
                         $result_car = mysqli_query($conn, $sql_car);
                         $row_car = mysqli_fetch_assoc($result_car);
+
+                        $sql_comm = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `spec_comment_detail` DESC";
+                        $result_comm = mysqli_query($conn, $sql_comm);
+                        $row_comm = mysqli_fetch_assoc($result_comm);
+                        $comm = $row_comm['spec_comment_detail'];
 
                         $status = $row_car['chk_spec_status'];
                     ?>
@@ -193,6 +199,7 @@ $detail = $row['goods_detail'];
                             <div class="col-3 d-flex">
                                 <div class="form-check form-check-inline">
                                     <?php
+                                    echo $status;
                                     if ($status == 1) {
                                     ?>
                                         <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
@@ -213,7 +220,11 @@ $detail = $row['goods_detail'];
                                     } else { ?>
                                         <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
                                         <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
-                                    <?php } ?>
+                                    <?php }
+
+                                    if ($comm) {
+                                    ?>
+
                                 </div>
 
                                 <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
@@ -225,79 +236,153 @@ $detail = $row['goods_detail'];
 
 
                             </div>
-                            <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+                            <div style="display:block;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
                                 <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
-                                    comment
+                                    <?php echo $comm; ?>
                                 </span>
-                                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
+                                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value='<?php echo $comm; ?>'>
 
                                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
                             </div>
 
 
-                        </div>
-                    <?php } ?>
+                        </div><?php
+                                    } else {
+                                ?>
                 </div>
 
-                <div class="col-5 m-4 p-3">
-                    <?php for ($i = 20; $i < 40; $i++) {
-                        $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i";
-                        $result_car = mysqli_query($conn, $sql_car);
-                        $row_car = mysqli_fetch_assoc($result_car);
+                <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </a>
 
-                        $status = $row_car['chk_spec_status'];
-                        # code...
-                    ?>
-                        <div class="row">
-                            <div class="col-9">
-                                <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
-                            </div>
-                            <div class="col-3 d-flex">
-                                <div class="form-check form-check-inline">
-                                    <?php
-                                    if ($status == 1) {
-                                    ?>
-                                        <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
-                                        <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
-                                    <?php
-                                    } else { ?>
-                                        <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
-                                        <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
-                                    <?php } ?>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <?php
-                                    if ($status == 2) {
-                                    ?>
-                                        <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required checked>
-                                        <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
-                                    <?php
-                                    } else { ?>
-                                        <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
-                                        <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
-                                    <?php } ?>
-                                </div>
-                                <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
-                                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
-                                <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
-                                    comment
-                                </span>
-                                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
-                                <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
+
             </div>
+            <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+                <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
+                    comment
+                </span>
+                <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
+
+                <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
+            </div>
+
+
         </div>
 
-        <!-- <div class="col-6">
+    <?php
+                                    }
+    ?>
+
+<?php } ?>
+    </div>
+
+    <div class="col-5 m-4 p-3">
+        <?php
+        for ($i = 20; $i <   40; $i++) {
+            # code...
+            $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `chk_spec`.`chk_spec_status` DESC";
+            $result_car = mysqli_query($conn, $sql_car);
+            $row_car = mysqli_fetch_assoc($result_car);
+
+            $sql_comm = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `spec_comment_detail` DESC";
+            $result_comm = mysqli_query($conn, $sql_comm);
+            $row_comm = mysqli_fetch_assoc($result_comm);
+            $comm = $row_comm['spec_comment_detail'];
+
+
+            $status = $row_car['chk_spec_status'];
+        ?>
+            <div class="row">
+                <div class="col-9">
+                    <label for="spec<?php echo $i; ?>" class="form-label fw-bold"><?php echo $spec[$i]; ?></label>
+                </div>
+                <div class="col-3 d-flex">
+                    <div class="form-check form-check-inline">
+                        <?php
+                        echo $status;
+                        if ($status == 1) {
+                        ?>
+                            <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
+                            <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                        <?php
+                        } else { ?>
+                            <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
+                            <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
+                        <?php } ?>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <?php
+                        if ($status == 2) {
+                        ?>
+                            <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required checked>
+                            <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                        <?php
+                        } else { ?>
+                            <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
+                            <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
+                        <?php }
+
+                        if ($comm) {
+                        ?>
+
+                    </div>
+
+                    <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </a>
+
+
+                </div>
+                <div style="display:block;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+                    <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
+                        <?php echo $comm; ?>
+                    </span>
+                    <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value='<?php echo $comm; ?>'>
+
+                    <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
+                </div>
+
+
+            </div><?php
+                        } else {
+                    ?>
+    </div>
+
+    <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+        </svg>
+    </a>
+
+
+    </div>
+    <div style="display:none;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
+        <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
+            comment
+        </span>
+        <input type='hidden' name='com_spec_comment_<?php echo $i; ?>' id='com_spec_comment_<?php echo $i; ?>' value=''>
+
+        <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
+    </div>
+
+
+    </div>
+
+<?php
+                        }
+?>
+
+<?php } ?>
+</div>
+
+<!-- <div class="col-6">
                     <div class="row">
                         <div class="col-6">
                             <div class="row ">
@@ -317,26 +402,26 @@ $detail = $row['goods_detail'];
                             </div>
 
                                 -->
-    </div>
-    <div class="fs-2 text-start mb-4 fw-bold">
-        ตรวจสอบสภาพรถ
-    </div>
-    <div class="d-flex flex-warp justify-content-center">
-        <div class="bg-white shadow p-3 pt-3 rounded-3">
-            <div class="row">
-                <div class="col-4 bg-white ">
+</div>
+<div class="fs-2 text-start mb-4 fw-bold">
+    ตรวจสอบสภาพรถ
+</div>
+<div class="d-flex flex-warp justify-content-center">
+    <div class="bg-white shadow p-3 pt-3 rounded-3">
+        <div class="row">
+            <div class="col-4 bg-white ">
 
-                    <?php include('chk/outside.php'); ?>
-                    <br>
-                    <?php include('chk/front_light.php'); ?>
-                    <br>
-                    <?php include('chk/fog_lamp.php'); ?>
-                    <br>
-                    <?php include('chk/ruby_bumper.php'); ?>
-                    <br>
-                    <?php include('chk/windshield.php'); ?>
-                    <br>
-                    <!--  <?php include('chk/front_fender.php'); ?>
+                <?php include('chk/outside.php'); ?>
+                <br>
+                <?php include('chk/front_light.php'); ?>
+                <br>
+                <?php include('chk/fog_lamp.php'); ?>
+                <br>
+                <?php include('chk/ruby_bumper.php'); ?>
+                <br>
+                <?php include('chk/windshield.php'); ?>
+                <br>
+                <!--  <?php include('chk/front_fender.php'); ?>
                     <br>
                     <?php include('chk/car_door.php'); ?>
                     <br>
@@ -397,18 +482,18 @@ $detail = $row['goods_detail'];
                     <?php include('chk/powertrain.php'); ?>
                     <br>
                     <?php include('chk/cooling_system.php'); ?> -->
-                </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="row">
-        <div class="d-flex justify-content-end mt-4">
-            <button type="submit" class="btn btn-success me-3">Edit</button>
-            <button type="button" class="btn btn-outline-danger me-3">Cancel</button>
-        </div>
+<div class="row">
+    <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn btn-success me-3">Edit</button>
+        <button type="button" class="btn btn-outline-danger me-3">Cancel</button>
     </div>
+</div>
 
 </form>
 

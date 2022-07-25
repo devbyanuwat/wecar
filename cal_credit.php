@@ -227,7 +227,7 @@
         console.log(year + "<- year");
 
         year = 48 / 12;
-        total = (principle * interest / 100 * year) + principle / 48 + principle * 0.07
+        total = (principle * interest / 100 * year) + principle / 48 + principle * 0.07;
         total = total.toFixed(0)
 
         result.innerHTML = 10;
