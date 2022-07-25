@@ -111,7 +111,7 @@ $id = $_GET['car'];
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6 bg-light">
                                     <ul class="list-group">
                                         <?php
                                         for ($i = 0; $i <  20; $i++) {
@@ -169,7 +169,7 @@ $id = $_GET['car'];
 
                                     </ul>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6 bg-light">
                                     <ul class="list-group">
                                         <?php
                                         for ($i = 20; $i <  40; $i++) {
