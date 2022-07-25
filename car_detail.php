@@ -1,6 +1,78 @@
 <?php
 include('header.php');
 include('database/db.php');
+$table = [
+    'outside',
+    'front_light',
+    'fog_lamp',
+    'ruby_bumper',
+    'windshield',
+    'front_fender',
+    'car_door',
+    'car_brand_symbol',
+    'rear_fender',
+    'car_roof',
+    'handrail',
+    'window_glass',
+    'engine_compartment_wall',
+    'shock_absorber',
+    'front_beam',
+    'side_mirror',
+    'alloy',
+    'tire',
+    'car_frame',
+    'seat',
+    'speed_meter',
+    'entertainment_control_system',
+    'multimedia_system',
+    'instrument_panel',
+    'car_lights',
+    'ceiling_light',
+    'handbrake',
+    'ceiling',
+    'lock_system',
+    'car_floor',
+    'window_film',
+    'engine_and_gear',
+    'powertrain',
+    'cooling_system'
+];
+$table_th = [
+    'ภายนอก',
+    'ไฟหน้า',
+    'ไฟตัดหมอก',
+    'ทับทิมกันชน',
+    'กระจกหน้ารถ',
+    'บังโคลนหน้า',
+    'ประตูรถ',
+    'สัญลักษณ์ / โลโก้ยี่ห้อรถ',
+    'บังโคลนหลัง',
+    'หลังคารถ',
+    'ราวจับ / ราวยึดบนหลังคารถ',
+    'กระจกหน้าต่าง / กระจกหน้าต่างช่วงสามเหลี่ยมด้านหลัง',
+    'ผนังของห้องเครื่อง',
+    'ซุ้มโชค',
+    'คานหน้ารถ',
+    'กระจกข้าง (กระจกหูช้าง)',
+    'ล้อแม็ก',
+    'ยาง',
+    'เสาโครงรถ',
+    'เบาะนั่ง',
+    'เรือนไมล์',
+    'ระบบควบคุมสาระบันเทิง',
+    'ระบบมัลติมีเดีย',
+    'แผงหน้าปัด',
+    'ไฟในรถ',
+    'ไฟเพดาน',
+    'เบรกมือ',
+    'เพดาน',
+    'ระบบล็อค',
+    'พื้นรถ',
+    'ฟิล์มกรองแสง',
+    'เครื่องยนต์และเกียร์',
+    'ชุดส่งกำลัง',
+    'ระบบทำความเย็น'
+];
 $spec = array(
     //col 1
     "ถุงลมนิรภัย",
@@ -101,10 +173,14 @@ $id = $_GET['car'];
                 <div class="bg-light shadow p-3">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">ตรวจสภาพรถ</button>
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                                สเปค
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">สเปค</button>
+                            <button class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                                ตรวจสภาพรถ
+                            </button>
                         </li>
 
                     </ul>
@@ -228,7 +304,11 @@ $id = $_GET['car'];
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <?php include('sh_spec.php'); ?>
+
+
+                        </div>
 
                     </div>
                 </div>

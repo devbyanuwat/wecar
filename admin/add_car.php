@@ -274,7 +274,7 @@
                     <br>
                     <?php include('chk/windshield.php'); ?>
                     <br>
-                    <!--  <?php include('chk/front_fender.php'); ?>
+                    <?php include('chk/front_fender.php'); ?>
                     <br>
                     <?php include('chk/car_door.php'); ?>
                     <br>
@@ -334,7 +334,7 @@
                     <br>
                     <?php include('chk/powertrain.php'); ?>
                     <br>
-                    <?php include('chk/cooling_system.php'); ?> -->
+                    <?php include('chk/cooling_system.php'); ?>
                 </div>
             </div>
         </div>
