@@ -317,8 +317,6 @@ $id = $_GET['car'];
 
 
     </div>
-
-
 </body>
 <footer>
     <?php include('cal_credit.php'); ?>

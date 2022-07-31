@@ -23,7 +23,7 @@ $detail = $_POST['detail'];
 
 ?>
 
-<table class="table table-bordered table-striped table-hover">
+<!-- <table class="table table-bordered table-striped table-hover">
     <tr>
         <th>symbol</th>
         <th>value</th>
@@ -55,16 +55,16 @@ $detail = $_POST['detail'];
     </tr>
     <tr>
         <th>sql</th>
-        <th>
-            <?php
-            $sql_goods = "UPDATE `goods` SET `brand_id` = '$brand_id', `goods_name` = '$name', `goods_year` = '$years', `goods_price` = '$price', `goods_detail` = '$detail', `goods_advert` = '$advert' WHERE `goods`.`goods_id` = $id";
-            if (mysqli_query($conn, $sql_goods)) {
-                echo "success";
-            }
-            // $last_id = mysqli_insert_id($conn);
-            // echo $last_id;
-            ?>
-        </th>
+        <th> -->
+<?php
+$sql_goods = "UPDATE `goods` SET `brand_id` = '$brand_id', `goods_name` = '$name', `goods_year` = '$years', `goods_price` = '$price', `goods_detail` = '$detail', `goods_advert` = '$advert' WHERE `goods`.`goods_id` = $id";
+if (mysqli_query($conn, $sql_goods)) {
+    // echo "success";
+}
+// $last_id = mysqli_insert_id($conn);
+// echo $last_id;
+?>
+<!-- </th>
     </tr>
     <tr>
         <th>file</th>
@@ -72,23 +72,23 @@ $detail = $_POST['detail'];
 
             ?> </th>
     </tr>
-</table>
+</table> -->
 
 <?php
 $spec_count = 40;
 
 for ($i = 0; $i < $spec_count; $i++) {
-    echo $i . "\t";
+    // echo $i . "\t";
     $status =  $_POST['spec' . $i];
-    echo $status;
+    // echo $status;
     $comment = $_POST['com_spec_comment_' . $i];
     if ($comment) {
         $sql = "INSERT INTO `spec_comment` (`goods_id`, `chk_spec_id`, `spec_comment_detail`) VALUES ('$last_id', '$i', '$comment')";
         mysqli_query($conn, $sql);
-        echo $sql;
+        // echo $sql;
     } else {
         $comment = "";
-        echo "not found";
+        // echo "not found";
     }
     echo "<br>";
     $sql = "INSERT INTO `chk_spec` (`goods_id`, `chk_spec_id`, `chk_spec_status`) VALUES ('$last_id', '$i', '$status')";
@@ -145,14 +145,14 @@ $comment  = "";
 for ($i = 0; $i < count($table); $i++) {
     $count = $_POST['count_' . $table[$i]];
     $qoute = $table[$i];
-    echo "<tr>";
-    echo "<td>";
-    echo  $table[$i];
-    echo "</td>";
-    echo "<td>";
-    echo  $count;
-    echo "</td>";
-    echo "<td>";
+    // echo "<tr>";
+    // echo "<td>";
+    // echo  $table[$i];
+    // echo "</td>";
+    // echo "<td>";
+    // echo  $count;
+    // echo "</td>";
+    // echo "<td>";
 
     for ($j = 1; $j <= $count; $j++) {
 
@@ -168,16 +168,16 @@ for ($i = 0; $i < count($table); $i++) {
         }
         $str = 'goods_chk_' . $qoute . '_id';
         $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
-        echo  " ID => " . $id;
-        echo "<br>";
-        echo " VALUE => " . $value;
-        echo "<br>";
-        echo " comment => " . $comment;
-        echo "<br>";
-        echo " sql => " . $sql;
-        echo "<br>";
-        echo "----------------";
-        echo "<br>";
+        // echo  " ID => " . $id;
+        // echo "<br>";
+        // echo " VALUE => " . $value;
+        // echo "<br>";
+        // echo " comment => " . $comment;
+        // echo "<br>";
+        // echo " sql => " . $sql;
+        // echo "<br>";
+        // echo "----------------";
+        // echo "<br>";
         if (mysqli_query($conn, $sql)) {
             $status =  "$table[$i] successfully";
 ?>
@@ -189,9 +189,9 @@ for ($i = 0; $i < count($table); $i++) {
             $status =  "Error INSERT table: " . $table[$i] . " " . mysqli_error($conn);
         }
     }
-    echo "<td>";
-    echo $status;
-    echo "</td>";
-    echo "</td>";
-    echo "</tr>";
+    // echo "<td>";
+    // echo $status;
+    // echo "</td>";
+    // echo "</td>";
+    // echo "</tr>";
 } ?>

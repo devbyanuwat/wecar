@@ -21,7 +21,7 @@ $detail = $_POST['detail'];
 
 ?>
 
-<table class="table border">
+<!-- <table class="table border">
     <tr>
         <th>symbol</th>
         <th>value</th>
@@ -49,45 +49,46 @@ $detail = $_POST['detail'];
     </tr>
     <tr>
         <th>sql</th>
-        <th>
-            <?php
-            $sql_goods = "INSERT INTO `goods` (`goods_id`, `brand_id`, `goods_name`, `goods_year`, `goods_price`, `goods_detail`, `goods_advert`, `goods_status`) VALUES (NULL, '$brand_id', '$name', '$years', '$price', '$detail', '$advert', '0')";
-            $result_goods = mysqli_query($conn, $sql_goods);
-            $last_id = mysqli_insert_id($conn);
-            echo $last_id;
-            ?>
-        </th>
-    </tr>
-    <tr>
-        <th>file</th>
-        <th><?php
-            if (isset($_FILES["filUpload"])) {
-                $countfiles = count($_FILES['filUpload']['name']);
-                for ($i = 0; $i < $countfiles; $i++) {
-                    $filename = $_FILES['filUpload']['name'][$i];
-                    // echo $filename;
-                    $sql = "INSERT INTO `goods_img` (`goods_img_id`, `goods_id`, `goods_img_src`) VALUES (NULL, '$last_id', '$filename')";
-                    mysqli_query($conn, $sql);
-                    copy($_FILES['filUpload']['tmp_name'][$i], "../img/goods/" . $filename);
-                }
-                echo "Copy/Upload Complete";
-            }
-            ?> </th>
-    </tr>
+        <th> -->
+<?php
+$sql_goods = "INSERT INTO `goods` (`goods_id`, `brand_id`, `goods_name`, `goods_year`, `goods_price`, `goods_detail`, `goods_advert`, `goods_status`) VALUES (NULL, '$brand_id', '$name', '$years', '$price', '$detail', '$advert', '0')";
+$result_goods = mysqli_query($conn, $sql_goods);
+$last_id = mysqli_insert_id($conn);
+// echo $last_id;
+?>
+<!-- </th>
+</tr>
+<tr>
+    <th>file</th>
+    <th> -->
+<?php
+if (isset($_FILES["filUpload"])) {
+    $countfiles = count($_FILES['filUpload']['name']);
+    for ($i = 0; $i < $countfiles; $i++) {
+        $filename = $_FILES['filUpload']['name'][$i];
+        // echo $filename;
+        $sql = "INSERT INTO `goods_img` (`goods_img_id`, `goods_id`, `goods_img_src`) VALUES (NULL, '$last_id', '$filename')";
+        mysqli_query($conn, $sql);
+        copy($_FILES['filUpload']['tmp_name'][$i], "../img/goods/" . $filename);
+    }
+    // echo "Copy/Upload Complete";
+}
+?> </th>
+</tr>
 </table>
 
 <?php
 $spec_count = 40;
 
 for ($i = 0; $i < $spec_count; $i++) {
-    echo $i . "\t";
+    // echo $i . "\t";
     $status =  $_POST['spec' . $i];
     $comment = $_POST['com_spec_comment_' . $i];
     if ($comment) {
         $sql = "INSERT INTO `spec_comment` (`goods_id`, `chk_spec_id`, `spec_comment_detail`) VALUES ('$last_id', '$i', '$comment')";
         mysqli_query($conn, $sql);
     } else {
-        echo "not found";
+        // echo "not found";
     }
     echo "<br>";
     $sql = "INSERT INTO `chk_spec` (`goods_id`, `chk_spec_id`, `chk_spec_status`) VALUES ('$last_id', '$i', '$status')";
@@ -144,14 +145,14 @@ $comment  = "";
 for ($i = 0; $i < count($table); $i++) {
     $count = $_POST['count_' . $table[$i]];
     $qoute = $table[$i];
-    echo "<tr>";
-    echo "<td>";
-    echo  $table[$i];
-    echo "</td>";
-    echo "<td>";
-    echo  $count;
-    echo "</td>";
-    echo "<td>";
+    // echo "<tr>";
+    // echo "<td>";
+    // echo  $table[$i];
+    // echo "</td>";
+    // echo "<td>";
+    // echo  $count;
+    // echo "</td>";
+    // echo "<td>";
 
     for ($j = 1; $j <= $count; $j++) {
 
@@ -166,16 +167,16 @@ for ($i = 0; $i < count($table); $i++) {
         }
         $str = 'goods_chk_' . $qoute . '_id';
         $sql = "INSERT INTO `chk_$qoute` (`goods_id`, `$str`, `goods_chk_status_id`) VALUES ('$last_id', '$id', '$value');";
-        echo  " ID => " . $id;
-        echo "<br>";
-        echo " VALUE => " . $value;
-        echo "<br>";
-        echo " comment => " . $comment;
-        echo "<br>";
-        echo $sql;
-        echo "<br>";
-        echo "----------------";
-        echo "<br>";
+        // echo  " ID => " . $id;
+        // echo "<br>";
+        // echo " VALUE => " . $value;
+        // echo "<br>";
+        // echo " comment => " . $comment;
+        // echo "<br>";
+        // echo $sql;
+        // echo "<br>";
+        // echo "----------------";
+        // echo "<br>";
         if (mysqli_query($conn, $sql)) {
             $status =  "$table[$i] successfully";
 ?>
@@ -187,9 +188,9 @@ for ($i = 0; $i < count($table); $i++) {
             $status =  "Error INSERT table: " . $table[$i] . " " . mysqli_error($conn);
         }
     }
-    echo "<td>";
-    echo $status;
-    echo "</td>";
-    echo "</td>";
-    echo "</tr>";
+    // echo "<td>";
+    // echo $status;
+    // echo "</td>";
+    // echo "</td>";
+    // echo "</tr>";
 } ?>

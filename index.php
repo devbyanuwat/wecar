@@ -8,7 +8,7 @@
         <div class="row">
             <div class="shadow mt-5 mb-5 bg-light rounded">
                 <div class="col-12">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-center">
                         <div class="row">
                             <?php include('database/db.php');
                             $sql = "SELECT * FROM goods WHERE `goods_status` = 1";
@@ -22,11 +22,11 @@
                                 $src = $row_src['goods_img_src'];
 
                             ?>
-                                <div class="col-4 p-3">
-                                    <div class="card rounded mx-auto" style="width: 70%;">
+                                <div class="col-4 pt-4">
+                                    <div class="card rounded mx-auto" style="width: 85%;">
                                         <img src="img/goods/<?php echo $src ?>" class="card-img-top p-4 rounded-3">
                                         <div class="card-body text-dark rounded bg-light">
-                                            <p class="card-text ">2018 Mitsubishi Pajero-Sport <br>2.4 Gls Limited | เกียร์อัตโนมัติ <br>54,773 กม. | ดีเซล
+                                            <p class="card-text "><?php echo $row['goods_detail'] ?>
                                                 <hr>
                                             <div class="row">
                                                 <div class="col-12 text-end" style="font-size: 16px;color: #FF810C;font-weight: bolder;"><?php echo $row['goods_price'] ?> บาท</div>
