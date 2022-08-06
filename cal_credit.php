@@ -172,16 +172,16 @@
 
                                 <ul class="nav nav-pills mb-3 d-flex justify-content-around" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button onclick="cal(48,3.7);" class="nav-link btn m-2  border text-dark" id="pills-48-tab" data-bs-toggle="pill" data-bs-target="#pills-48" type="button" role="tab" aria-controls="pills-48" aria-selected="true">48</button>
+                                        <button onclick="month(48);" class="nav-link btn m-2  border text-dark" id="pills-48-tab" data-bs-toggle="pill" data-bs-target="#pills-48" type="button" role="tab" aria-controls="pills-48" aria-selected="true">48</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button onclick="cal(60,4.1);" class="nav-link btn m-2 border text-dark active" id="pills-60-tab" data-bs-toggle="pill" data-bs-target="#pills-60" type="button" role="tab" aria-controls="pills-60" aria-selected="false">60</button>
+                                        <button onclick="month(60);" class="nav-link btn m-2 border text-dark active" id="pills-60-tab" data-bs-toggle="pill" data-bs-target="#pills-60" type="button" role="tab" aria-controls="pills-60" aria-selected="false">60</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button onclick="cal(72,5);" class="nav-link btn m-2 border text-dark" id="pills-72-tab" data-bs-toggle="pill" data-bs-target="#pills-72" type="button" role="tab" aria-controls="pills-72" aria-selected="false">72</button>
+                                        <button onclick="month(72);" class="nav-link btn m-2 border text-dark" id="pills-72-tab" data-bs-toggle="pill" data-bs-target="#pills-72" type="button" role="tab" aria-controls="pills-72" aria-selected="false">72</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button onclick="cal(84,5.6);" class="nav-link btn m-2 border text-dark" id="pills-84-tab" data-bs-toggle="pill" data-bs-target="#pills-84" type="button" role="tab" aria-controls="pills-84" aria-selected="false">84</button>
+                                        <button onclick="month(84);" class="nav-link btn m-2 border text-dark" id="pills-84-tab" data-bs-toggle="pill" data-bs-target="#pills-84" type="button" role="tab" aria-controls="pills-84" aria-selected="false">84</button>
                                     </li>
                                 </ul>
                             </div>
@@ -214,15 +214,13 @@
         }
     }
 
-    function cal(year, inter, rate) {
+    function cal() {
 
         var result = document.getElementById('result');
-
+        var rate, year;
         var interest = document.getElementById('interest').innerHTML;
         interest = (interest / 100);
         interest = interest.toFixed(3);
-
-
 
         var principle = document.getElementById('principle');
 
@@ -233,7 +231,7 @@
 
         var ranged = document.getElementById('ranged').value;
         if (rate) {
-            alert(rate);
+
         } else {
             if (ranged == 0) {
                 rate = 1;
@@ -249,6 +247,7 @@
                 rate = 0.5;
             }
             rate = car_price * rate;
+
         }
         down_payment.value = rate; //จำนวนเงินดาวน์
 
@@ -258,16 +257,23 @@
             year = 60;
         }
 
-        var total = ((car_price - rate) * interest) + car_price / year;
+        var total = car_price - rate;
+
+        total = total * interest;
+
+        total = total + Number(car_price);
+
+        total = total / year;
+
         total = total.toFixed(2);
 
         result.innerHTML = total;
 
-        console.log(interest + "<- interest"); //ดอกเบี้ย
-        console.log(principle + "<- principle"); //ยอดเงินกู้
-        console.log(car_price + "<- car_price"); //ราคารถ
-        console.log(down_payment + "<- down_payment"); //ราคาดาว
-        console.log(year + "<- year");
+        // console.log(interest + "<- interest"); //ดอกเบี้ย
+        // console.log(principle + "<- principle"); //ยอดเงินกู้
+        // console.log(car_price + "<- car_price"); //ราคารถ
+        // console.log(down_payment + "<- down_payment"); //ราคาดาว
+        // console.log(year + "<- year");
 
 
 
@@ -275,22 +281,95 @@
     }
 
     function down(value) {
+
         var car_price = document.getElementById('car_price').value;
         var ranged = document.getElementById('ranged');
-        downed = value / car_price;
-        if (downed <= 0.1) {
+
+        var result = document.getElementById('result');
+        downed = value / car_price * 100;
+
+        if (downed <= 10) {
             ranged.value = 0;
-        } else if (downed <= 0.2) {
+            interest = 4.1;
+        } else if (downed < 20) {
             ranged.value = 1;
-        } else if (downed <= 0.3) {
+            interest = 3.3;
+        } else if (downed < 30) {
             ranged.value = 2;
-        } else if (downed <= 0.4) {
+            interest = 3.3;
+        } else if (downed < 40) {
             ranged.value = 3;
-        } else if (downed <= 0.5) {
+            interest = 3.3;
+        } else if (downed < 50) {
             ranged.value = 4;
-        } else if (downed <= 0.6) {
+            interest = 3.3;
+        } else if (downed < 60) {
             ranged.value = 5;
+            interest = 3.3;
         }
+        document.getElementById('interest').innerHTML = (interest).toFixed(1);
+
+        var year = 60;
+        var rate = value;
+        var total = car_price - rate;
+        var interest = document.getElementById('interest').innerHTML;
+
+        interest = (interest / 100);
+        interest = interest.toFixed(3);
+
+        total = total * interest;
+        total = total + Number(car_price);
+        total = total / year;
+        total = total.toFixed(2);
+        result.innerHTML = total;
+    }
+
+    function month(year) {
+
+        var car_price = document.getElementById('car_price').value;
+        var ranged = document.getElementById('ranged');
+        var down_payment = document.getElementById('down_payment').value;
+        var result = document.getElementById('result');
+
+        year /= 12;
+
+        if (down_payment / car_price * 100 <= 10) {
+            if (year == 4) {
+                interest = 3.7;
+            } else if (year == 5) {
+                interest = 4.1;
+            } else if (year == 6) {
+                interest = 5;
+            } else if (year == 7) {
+                interest = 5.6;
+            }
+        } else {
+            if (year == 4) {
+                interest = 2.9;
+            } else if (year == 5) {
+                interest = 3.3;
+            } else if (year == 6) {
+                interest = 4.1;
+            } else if (year == 7) {
+                interest = 5;
+            }
+        }
+
+        year *= 12;
+        document.getElementById('interest').innerHTML = (interest).toFixed(1);
+
+        var rate = down_payment = document.getElementById('down_payment').value;
+        var total = car_price - rate;
+        var interest = document.getElementById('interest').innerHTML;
+
+        interest = (interest / 100);
+        interest = interest.toFixed(3);
+
+        total = total * interest;
+        total = total + Number(car_price);
+        total = total / year;
+        total = total.toFixed(2);
+        result.innerHTML = total;
 
     }
 </script>

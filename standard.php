@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="shadow bg-light ps-5 pe-5 pb-5 m-3 rounded-3">
+            <div class="shadow-lg bg-light ps-5 pe-5 pb-5 m-3 rounded-3">
 
                 <div class="fs-4 fw-bold text-center m-3">
                     มาตรฐานการปรับสภาพรถ
@@ -76,5 +76,10 @@
         </div>
     </div>
 </body>
+<footer>
+    <div class="container">
+        <?php include('cal_credit.php'); ?>
+    </div>
+</footer>
 
 </html>
