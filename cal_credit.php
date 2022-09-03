@@ -279,6 +279,8 @@
 
     function down(value) {
 
+        //found bug function
+
         var car_price = document.getElementById('car_price').value;
         var ranged = document.getElementById('ranged');
 
