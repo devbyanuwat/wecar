@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" id="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" id="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" id="alloy_value_<?php echo $row_alloy['goods_chk_alloy_id']; ?>" value="2" required>

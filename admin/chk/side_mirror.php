@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" id="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" id="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" id="side_mirror_value_<?php echo $row_side_mirror['goods_chk_side_mirror_id']; ?>" value="2" required>

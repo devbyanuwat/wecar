@@ -37,7 +37,7 @@
                     $result_windshield_value = mysqli_query($conn, $sql_windshield_value);
                     $row_windshield_value = mysqli_fetch_assoc($result_windshield_value);
 
-                    echo $row_windshield_value['goods_chk_status_id'];
+                    // echo $row_windshield_value['goods_chk_status_id'];
 
                     if ($row_windshield_value['goods_chk_status_id'] == 1) {
                 ?>
@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" id="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" id="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" id="windshield_value_<?php echo $row_windshield['goods_chk_windshield_id']; ?>" value="2" required>

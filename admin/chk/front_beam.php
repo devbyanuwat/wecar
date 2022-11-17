@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" id="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" id="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" id="front_beam_value_<?php echo $row_front_beam['goods_chk_front_beam_id']; ?>" value="2" required>

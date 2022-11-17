@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" id="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" id="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" id="ruby_bumper_value_<?php echo $row_ruby_bumper['goods_chk_ruby_bumper_id']; ?>" value="2" required>

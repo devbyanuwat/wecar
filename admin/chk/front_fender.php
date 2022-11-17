@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" id="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" id="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" id="front_fender_value_<?php echo $row_front_fender['goods_chk_front_fender_id']; ?>" value="2" required>

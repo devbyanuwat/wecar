@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" id="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" id="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" id="shock_absorber_value_<?php echo $row_shock_absorber['goods_chk_shock_absorber_id']; ?>" value="2" required>

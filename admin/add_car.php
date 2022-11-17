@@ -76,7 +76,7 @@
                 <div class="col-5 mb-3 ">
                     <label for="price" class="form-label">ราคา</label>
                     <div class="input-group flex-nowrap">
-                        <input type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[1-9]{0,9}" maxlength="9" required>
+                        <input type="text" name="price" id="price" class="form-control" aria-describedby="addon-wrapping" aria-label="price" pattern="[0-9]{0,9}" maxlength="9" required>
                         <span class="input-group-text" id="price">฿</span>
                     </div>
                 </div>
@@ -90,6 +90,7 @@
                     <input type="file" class="form-control" name="filUpload[]" id="filUpload" multiple>
                     <label class="input-group-text" for="file">Upload</label>
                 </div>
+
                 <div class="col-12 mb-3">
                     <lable for="detail" class="form-label">รายละเอียด</lable>
                     <textarea class="form-control" name="detail" id="detail" cols="10" rows="3"></textarea>
@@ -113,18 +114,18 @@
         "ระบบติดตั้งคาร์ซีทสำหรับเด็ก",
         "ระบบล็อคสำหรับเด็ก",
         "ระบบเตือนการชน",
-        "ไฟหน้า",
-        "ไฟท้าย",
+        // "ไฟหน้า",
+        // "ไฟท้าย",
         "ไฟตัดหมอกหน้า",
         "ไฟตัดหมอกหลัง",
         "ไฟ LED กลางวัน",
-        "เบาะหน้า",
-        "เบาะหลัง",
+        // "เบาะหน้า",
+        // "เบาะหลัง",
         "หลังคารับแสง",
-        "ไฟในรถ",
-        "ที่บังแดด",
-        "ปลั๊กไฟ",
-        "ที่วางแก้วน้ำ",
+        // "ไฟในรถ",
+        // "ที่บังแดด",
+        // "ปลั๊กไฟ",
+        // "ที่วางแก้วน้ำ",
         "หน้าต่างไฟฟ้า",
         //col 2
         "ระบบป้องกันรถไหลเมื่อขึ้นทางลาด",
@@ -136,17 +137,17 @@
         "เซ็นเซอร์จอดด้านหลัง",
         "กล้องถอย",
         "ประตูไฟฟ้า",
-        "Boot Operation",
+        // "Boot Operation",
         "เกียร์ที่พวงมาลัย",
-        "เบรกมือ",
+        // "เบรกมือ",
         "ระบบคุมความเร็วอัตโนมัติ",
         "เกียร์ทิปทรอนิค",
         "ระบบควบคุมเสียงที่พวงมาลัย",
-        "ที่ปรับของพวงมาลัยไฟฟ้า",
-        "ที่ปรับของพวงมาลัยไฟฟ้า",
-        "ระบบจอดอัตโนมัติ",
-        "กระจกมองหลังนอกรถ",
-        "แผงหน้าปัด",
+        // "ที่ปรับของพวงมาลัยไฟฟ้า",
+        // "ที่ปรับของพวงมาลัยไฟฟ้า",
+        // "ระบบจอดอัตโนมัติ",
+        // "กระจกมองหลังนอกรถ",
+        // "แผงหน้าปัด",
     );
     $topic = "fs-5 text-start mb-2";
     $detail = "col-6 ps-4";
@@ -197,7 +198,7 @@
                 </div>
 
                 <div class="col-5 m-4 p-3">
-                    <?php for ($i = 20; $i < 40; $i++) {
+                    <?php for ($i = count($spec)  / 2 + 1; $i < count($spec); $i++) {
                         # code...
                     ?>
                         <div class="row">
@@ -206,11 +207,11 @@
                             </div>
                             <div class="col-3 d-flex">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required>
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
                                     <label class="form-check-label" for="spec<?php echo $i; ?>">มี</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required checked>
+                                    <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="2" required>
                                     <label class="form-check-label" for="spec<?php echo $i; ?>">ไม่มี</label>
                                 </div>
 

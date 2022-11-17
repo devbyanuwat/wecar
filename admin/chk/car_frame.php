@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" id="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" id="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" id="car_frame_value_<?php echo $row_car_frame['goods_chk_car_frame_id']; ?>" value="2" required>

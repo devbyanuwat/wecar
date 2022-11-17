@@ -1,6 +1,24 @@
 <?php include('../header.php'); ?>
+<?php include('../style/bootstrap5.php'); ?>
+<!-- 
+<div id="dialog" title="Basic dialog">
+    <input type="password" size="25" />
+</div> -->
 
-<body style="max-width: 100%;">
+
+<script>
+    // $("#dialog").dialog();
+    let login;
+    // let password = prompt.hide(chalk.yellow('password: '));
+    // do {
+    //     login = prompt("Please enter password!");
+    //     // 
+    // } while (login != "weusecar")
+    // alert("success");
+    // document.getElementById('body1').style.display = "block";
+</script>
+
+<body style="max-width: 100%;" id="body1">
     <div class="container">
         <div class="row mt-3">
             <div class="col-2 ">

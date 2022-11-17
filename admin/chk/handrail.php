@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" id="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" id="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" id="handrail_value_<?php echo $row_handrail['goods_chk_handrail_id']; ?>" value="2" required>

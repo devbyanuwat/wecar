@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" id="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" id="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" id="ceiling_value_<?php echo $row_ceiling['goods_chk_ceiling_id']; ?>" value="2" required>

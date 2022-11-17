@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" id="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" id="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" id="multimedia_system_value_<?php echo $row_multimedia_system['goods_chk_multimedia_system_id']; ?>" value="2" required>

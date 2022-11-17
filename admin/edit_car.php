@@ -22,7 +22,7 @@ $detail = $row['goods_detail'];
 <form action="../database/edit_goods.php" method="post" class="row g-3 needs-validation" enctype='multipart/form-data' novalidate>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <div class="fs-2 text-start mb-4 fw-bold">
-        เพิ่มรถ
+        แก้ไข
     </div>
     <div class="d-flex justify-content-center">
         <div class="bg-light shadow p-3 pt-3 rounded-3">
@@ -107,7 +107,7 @@ $detail = $row['goods_detail'];
                     <textarea class="form-control" name="advert" id="advert" cols="10" rows="3"><?php echo $advert; ?></textarea>
                 </div>
 
-                <div class="input-group mb-3" style="display:none">
+                <div class="input-group mb-3" style="">
                     <input type="file" class="form-control" name="filUpload[]" id="filUpload" multiple>
                     <label class="input-group-text" for="file">Upload</label>
                 </div>
@@ -199,7 +199,7 @@ $detail = $row['goods_detail'];
                             <div class="col-3 d-flex">
                                 <div class="form-check form-check-inline">
                                     <?php
-                                    echo $status;
+                                    // echo $status;
                                     if ($status == 1) {
                                     ?>
                                         <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
@@ -246,7 +246,8 @@ $detail = $row['goods_detail'];
                             </div>
 
 
-                        </div><?php
+                        </div>
+                        <?php
                                     } else {
                                 ?>
                 </div>
@@ -302,7 +303,7 @@ $detail = $row['goods_detail'];
                 <div class="col-3 d-flex">
                     <div class="form-check form-check-inline">
                         <?php
-                        echo $status;
+                        // echo $status;
                         if ($status == 1) {
                         ?>
                             <input class="form-check-input" type="radio" name="spec<?php echo $i; ?>" id="spec<?php echo $i; ?>" value="1" required checked>
@@ -403,6 +404,7 @@ $detail = $row['goods_detail'];
 
                                 -->
 </div>
+
 <div class="fs-2 text-start mb-4 fw-bold">
     ตรวจสอบสภาพรถ
 </div>
@@ -421,7 +423,7 @@ $detail = $row['goods_detail'];
                 <br>
                 <?php include('chk/windshield.php'); ?>
                 <br>
-                <!--  <?php include('chk/front_fender.php'); ?>
+                 <?php include('chk/front_fender.php'); ?>
                     <br>
                     <?php include('chk/car_door.php'); ?>
                     <br>
@@ -481,7 +483,7 @@ $detail = $row['goods_detail'];
                     <br>
                     <?php include('chk/powertrain.php'); ?>
                     <br>
-                    <?php include('chk/cooling_system.php'); ?> -->
+                    <?php include('chk/cooling_system.php'); ?>
             </div>
         </div>
     </div>
@@ -500,7 +502,7 @@ $detail = $row['goods_detail'];
 <script>
     function add_comment(name) {
         Swal.fire({
-            title: "ระบุสาเหตุ" + name,
+            title: "ระบุสาเหตุ" ,
             icon: 'info',
             input: 'text',
             showCancelButton: true

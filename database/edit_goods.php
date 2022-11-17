@@ -1,4 +1,5 @@
 <?php
+echo "Edit page";
 include('db.php');
 include('../style/bootstrap5.php');
 $brand = $_POST['brand'];
@@ -68,11 +69,26 @@ if (mysqli_query($conn, $sql_goods)) {
     </tr>
     <tr>
         <th>file</th>
-        <th><?php
-
-            ?> </th>
+        <th> </th>
     </tr>
 </table> -->
+
+<?php
+if (isset($_FILES["filUpload"])) {
+    $countfiles = count($_FILES['filUpload']['name']);
+    echo $countfiles;
+    for ($i = 0; $i < $countfiles; $i++) {
+        $filename = $_FILES['filUpload']['name'][$i];
+        // echo $_FILES['filUpload']['tmp_name'][$i] . " <- File upload";
+        // echo $filename;
+        $sql = "INSERT INTO `goods_img` (`goods_img_id`, `goods_id`, `goods_img_src`) VALUES (NULL, '$id', '$filename')";
+        mysqli_query($conn, $sql);
+        copy($_FILES['filUpload']['tmp_name'][$i], "../img/goods/" . $filename);
+
+    }
+    // echo "Copy/Upload Complete";
+}
+?>
 
 <?php
 $spec_count = 40;
@@ -181,9 +197,9 @@ for ($i = 0; $i < count($table); $i++) {
         if (mysqli_query($conn, $sql)) {
             $status =  "$table[$i] successfully";
 ?>
-            <!-- <script>
+            <script>
                 success("../admin/");
-            </script> -->
+            </script>
 <?php
         } else {
             $status =  "Error INSERT table: " . $table[$i] . " " . mysqli_error($conn);

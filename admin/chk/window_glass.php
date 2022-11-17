@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" id="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" id="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" id="window_glass_value_<?php echo $row_window_glass['goods_chk_window_glass_id']; ?>" value="2" required>

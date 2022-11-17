@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" id="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" id="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" id="fog_lamp_value_<?php echo $row_fog_lamp['goods_chk_fog_lamp_id']; ?>" value="2" required>

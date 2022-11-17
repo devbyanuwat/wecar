@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" id="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" id="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" id="seat_value_<?php echo $row_seat['goods_chk_seat_id']; ?>" value="2" required>

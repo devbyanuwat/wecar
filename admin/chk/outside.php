@@ -14,6 +14,7 @@
     <div class="row">
         <?php
         $sql_outside = "SELECT * FROM `goods_chk_outside`";
+
         $result_outside = mysqli_query($conn, $sql_outside);
         $count_outside =  mysqli_num_rows($result_outside);
  
@@ -31,13 +32,13 @@
             </div>
             <div class="col-5 d-flex justify-content-between ">
                 <?php
+                
                 if ($id > 0) {
  
-                    $sql_outside_value = "SELECT * FROM `chk_outside` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id";
+                    $sql_outside_value = "SELECT * FROM `chk_outside` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id ORDER BY `chk_outside`.`goods_chk_status_id` DESC";
                     $result_outside_value = mysqli_query($conn, $sql_outside_value);
                     $row_outside_value = mysqli_fetch_assoc($result_outside_value);
- 
- 
+                    
  
                     if ($row_outside_value['goods_chk_status_id'] == 1) {
                 ?>
@@ -59,10 +60,14 @@
                     <?php
                     }
  
-                    $sql_com = "SELECT * FROM `goods_chk_outside_comment` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id";
+                    $sql_com = "SELECT * FROM `goods_chk_outside_comment` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id ORDER BY goods_chk_comment DESC";
+                    
                     $result_com = mysqli_query($conn, $sql_com);
                     $row_com = mysqli_fetch_assoc($result_com);
                     $comm = $row_com['goods_chk_comment'];
+
+
+                    
                     if ($row_com['goods_chk_comment']) {
                     ?>
                         <a style="cursor: pointer;" id="a_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" onclick="add_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')">
@@ -71,6 +76,8 @@
                                 <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </a>
+
+                        
             </div>
             <div style="display:block;" class="text-end text-secondary fs-6 " id="c_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
                 <span name="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
@@ -99,7 +106,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>

@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" id="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" id="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" id="car_roof_value_<?php echo $row_car_roof['goods_chk_car_roof_id']; ?>" value="2" required>

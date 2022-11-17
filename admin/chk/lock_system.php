@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" id="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" id="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" id="lock_system_value_<?php echo $row_lock_system['goods_chk_lock_system_id']; ?>" value="2" required>

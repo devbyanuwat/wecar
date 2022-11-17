@@ -59,9 +59,9 @@
 
 </body>
 <footer>
-
-    <?php include('cal_credit.php'); ?>
-
+    <div class="container">
+        <?php include('footer.php'); ?>
+    </div>
 </footer>
 
 </html>

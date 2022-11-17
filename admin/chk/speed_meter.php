@@ -99,7 +99,7 @@
                     }
                 } else { ?>
 <div class="form-check form-check-inline ">
-    <input class="form-check-input" type="radio" name="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" id="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" value="1" required>
+    <input class="form-check-input" type="radio" name="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" id="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" value="1" required checked>
 </div>
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" id="speed_meter_value_<?php echo $row_speed_meter['goods_chk_speed_meter_id']; ?>" value="2" required>

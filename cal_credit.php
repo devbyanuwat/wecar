@@ -1,8 +1,4 @@
 <div class="containner">
-
-
-
-
     <div class="row">
         <!-- <div class="col-3 text-center bg-primary shadow-lg p-3 m-3 text-white rounded-3">
                     <img src="img/goods/Pajero_sport.png" alt="">
@@ -14,9 +10,9 @@
 
                     <div class="fs-3">เพื่อรถคันนี้ไหม</div>
                 </div> -->
-        <div class="col-12 bg-white shadow-lg p-3 mt-5    rounded-3">
+        <div class="col-12  bg-white shadow-lg p-3 mt-5 rounded-3">
             <div class="row">
-                <div class="col-4 m-3">
+                <div class="col-4  col-xs-10 m-3">
                     <div class="fs-4 fw-bold">
                         คำนวณสินเชื่อรถยนต์
                     </div>
@@ -51,7 +47,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="display:none">
                         <div class="col-5">
                             <div class="fs-6">ยอดเงินกู้</div>
                         </div>
@@ -69,7 +65,7 @@
 
 
 
-                <div class="col-7 m-3">
+                <div class="col-7 col-xs-10 m-3">
                     <!--  <div class="row">
                                    <div class="col-6">
                                         <div class="fs-6 fw-bold">
@@ -168,25 +164,27 @@
                                         <button onclick="btn();" class="btn">4</button>
                                         <button onclick="btn();" class="btn">5</button>
                                         <button onclick="btn();" class="btn active">6</button>
+    
                                     </div> -->
 
                         <ul class="nav nav-pills mb-3 d-flex justify-content-around" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button onclick="month(48);" class="nav-link btn m-2  border text-dark" id="pills-48-tab" data-bs-toggle="pill" data-bs-target="#pills-48" type="button" role="tab" aria-controls="pills-48" aria-selected="true">48</button>
+                                <button onclick="month(48);" name="year" class="nav-link btn m-2 border text-dark " id="pills-48-tab" data-bs-toggle="pill" data-bs-target="#pills-48" type="button" role="tab" aria-controls="pills-48" aria-selected="true">48</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button onclick="month(60);" class="nav-link btn m-2 border text-dark active" id="pills-60-tab" data-bs-toggle="pill" data-bs-target="#pills-60" type="button" role="tab" aria-controls="pills-60" aria-selected="false">60</button>
+                                <button onclick="month(60);" name="year" class="nav-link btn m-2 border text-dark active" id="pills-60-tab" data-bs-toggle="pill" data-bs-target="#pills-60" type="button" role="tab" aria-controls="pills-60" aria-selected="false">60</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button onclick="month(72);" class="nav-link btn m-2 border text-dark" id="pills-72-tab" data-bs-toggle="pill" data-bs-target="#pills-72" type="button" role="tab" aria-controls="pills-72" aria-selected="false">72</button>
+                                <button onclick="month(72);" name="year" class="nav-link btn m-2 border text-dark " id="pills-72-tab" data-bs-toggle="pill" data-bs-target="#pills-72" type="button" role="tab" aria-controls="pills-72" aria-selected="false">72</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button onclick="month(84);" class="nav-link btn m-2 border text-dark" id="pills-84-tab" data-bs-toggle="pill" data-bs-target="#pills-84" type="button" role="tab" aria-controls="pills-84" aria-selected="false">84</button>
+                                <button onclick="month(84);" name="year" class="nav-link btn m-2 border text-dark " id="pills-84-tab" data-bs-toggle="pill" data-bs-target="#pills-84" type="button" role="tab" aria-controls="pills-84" aria-selected="false">84</button>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+
 
 
         </div>
@@ -242,9 +240,10 @@
                 rate = 0.5;
             }
             rate = car_price * rate;
+            // alert("rate cal : " + rate)
 
         }
-        down_payment.value = rate; //จำนวนเงินดาวน์
+        down_payment.value = rate.toFixed(0); //จำนวนเงินดาวน์
 
 
 
@@ -257,14 +256,19 @@
         total = total * interest;
 
 
-        total = total + Number(car_price) - rate;
-        principle.innerHTML = total - rate; //ยอดเงินกู้
+        total = total + Number(car_price);
+        // console.log(rate + " " + total);
+        var principle_cal = total - rate;
+        principle_cal = Number(principle_cal)
+        principle.innerHTML = principle_cal.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");; //ยอดเงินกู้
 
+
+        total = principle_cal.toFixed(2);
         total = total / year;
 
         total = total.toFixed(2);
 
-        result.innerHTML = total;
+        result.innerHTML = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
 
         // console.log(interest + "<- interest"); //ดอกเบี้ย
         // console.log(principle + "<- principle"); //ยอดเงินกู้
@@ -282,13 +286,21 @@
         //found bug function
 
         var car_price = document.getElementById('car_price').value;
-        var ranged = document.getElementById('ranged');
+        // alert(car_price);
+        var principle = document.getElementById('principle');
+        var interest, rate;
 
         var result = document.getElementById('result');
-        downed = value / car_price * 100;
+        var downed = value / Number(car_price) * 100;
+        // alert("down : "+ downed);
 
-        if (downed <= 10) {
-            ranged.value = 0;
+        var ranged = document.getElementById('ranged');
+        if (downed < 11) {
+            if (downed == 10) {
+                ranged.value = 1;
+            } else {
+                ranged.value = 0;
+            }
             interest = 4.1;
         } else if (downed < 20) {
             ranged.value = 1;
@@ -306,21 +318,50 @@
             ranged.value = 5;
             interest = 3.3;
         }
+
+        if (ranged.value == 0) {
+            rate = 1;
+        } else if (ranged.value == 1) {
+            rate = 0.1;
+        } else if (ranged.value == 2) {
+            rate = 0.2;
+        } else if (ranged.value == 3) {
+            rate = 0.3;
+        } else if (ranged.value == 4) {
+            rate = 0.4;
+        } else if (ranged.value == 5) {
+            rate = 0.5;
+        }
+
+        rate = car_price * rate;
+        // alert("rate down : " + rate)
+        // alert("ranged down : " + ranged)
+        // 
         document.getElementById('interest').innerHTML = (interest).toFixed(1);
 
         var year = 60;
-        var rate = value;
-        var total = car_price - rate;
-        var interest = document.getElementById('interest').innerHTML;
+        // var rate = value;
+        // var total = car_price - rate;
+        //to fix
 
         interest = (interest / 100);
         interest = interest.toFixed(3);
 
+
+        var total = car_price - rate;
         total = total * interest;
+        console.log(total);
         total = total + Number(car_price);
+
+        var principle_cal = total - rate;
+        principle_cal = Number(principle_cal)
+        principle.innerHTML = principle_cal.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");; //ยอดเงินกู้
+
+        total = principle_cal.toFixed(2);
         total = total / year;
         total = total.toFixed(2);
-        result.innerHTML = total;
+
+        result.innerHTML = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
     }
 
     function month(year) {
@@ -368,7 +409,7 @@
         total = total + Number(car_price);
         total = total / year;
         total = total.toFixed(2);
-        result.innerHTML = total;
+        result.innerHTML = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
 
     }
 </script>

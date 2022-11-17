@@ -52,6 +52,7 @@ $detail = $_POST['detail'];
         <th> -->
 <?php
 $sql_goods = "INSERT INTO `goods` (`goods_id`, `brand_id`, `goods_name`, `goods_year`, `goods_price`, `goods_detail`, `goods_advert`, `goods_status`) VALUES (NULL, '$brand_id', '$name', '$years', '$price', '$detail', '$advert', '0')";
+// echo $sql_goods;
 $result_goods = mysqli_query($conn, $sql_goods);
 $last_id = mysqli_insert_id($conn);
 // echo $last_id;

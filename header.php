@@ -29,4 +29,8 @@
     }
 </style>
 
-<?php include('database/db.php'); ?>
+<?php 
+// error_reporting(0);
+
+include('database/db.php'); ?>
+

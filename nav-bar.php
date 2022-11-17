@@ -1,12 +1,12 @@
-<ul class="nav justify-content-center bg-white shadow p-3 mb-3">
+<ul class="nav justify-content-center bg-white shadow p-1 mb-3">
     <div class="col-1">
         <li class="nav-item">
             <a class="nav-link " aria-current="page" href="index.php">
-                <img src="img/logo.png" width="150%">
+                <img src="img/logo.png" width="200%">
             </a>
         </li>
     </div>
-    <div class="col-10 d-flex justify-content-center align-self-center">
+    <div style="font-size:18px" class="col-10  d-flex justify-content-center align-self-center">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">หน้าหลัก</a>
         </li>
