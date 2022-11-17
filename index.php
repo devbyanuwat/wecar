@@ -22,6 +22,16 @@
                                 $src = $row_src['goods_img_src'];
 
                             ?>
+
+                                <style>
+                                    .card {
+                                        transition: all 250ms ease-out
+                                    }
+
+                                    .card:hover {
+                                        box-shadow: 5px 10px #6c757d;
+                                    }
+                                </style>
                                 <div class="col-4 pt-4 pb-4" style="padding:1px">
                                     <div class="card rounded mx-auto" style="width: 90%;">
                                         <img src="img/goods/<?php echo $src ?>" class="card-img-top p-4 rounded-3">
