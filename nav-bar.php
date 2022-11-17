@@ -7,7 +7,7 @@
     }
 
     .text-nav::after {
-        font-size: 24px;
+
         content: '';
         position: absolute;
         width: 100%;
@@ -23,6 +23,7 @@
     .text-nav:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
+
     }
 </style>
 <ul class="nav justify-content-center bg-white shadow p-1 mb-3">
