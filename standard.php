@@ -78,7 +78,7 @@
 </body>
 <footer>
     <div class="container">
-        <?php include('cal_credit.php'); ?>
+        <?php include('footer.php'); ?>
     </div>
 </footer>
 

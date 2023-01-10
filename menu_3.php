@@ -106,11 +106,16 @@
             <div class="m-3"><br></div>
         </div>
     </div>
+
 </body>
 
 <footer>
     <div class="container">
-        <?php include('cal_credit.php'); ?>
+        <?php //include('cal_credit.php'); 
+        ?>
+        <div class="container">
+            <?php include('footer.php'); ?>
+        </div>
     </div>
 </footer>
 
