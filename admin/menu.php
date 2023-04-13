@@ -27,5 +27,8 @@
             </svg>
             มาตราฐานคุณภาพ
         </a>
+        <a href="logout.php" class="list-group-item list-group-item-action" id="standard">
+            Logout
+        </a>
     </div>
 </div>

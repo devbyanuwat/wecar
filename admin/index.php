@@ -5,7 +5,15 @@
     <input type="password" size="25" />
 </div> -->
 
+<?php
+session_start();
 
+if (!$_SESSION['user']) {
+    include("chk_login.php");
+} else {
+    echo $_SESSION['user'];
+}
+?>
 <script>
     // $("#dialog").dialog();
     let login;

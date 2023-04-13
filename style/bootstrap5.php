@@ -32,5 +32,24 @@
             window.location = href;
         })
     }
-</script>
 
+    async function fromLogin() {
+        const {
+            value: password
+        } = await Swal.fire({
+            title: 'Enter your password',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: 'Enter your password',
+            inputAttributes: {
+                maxlength: 10,
+                autocapitalize: 'off',
+                autocorrect: 'off'
+            }
+        })
+
+        return (password == "wecar") ? true : false;
+
+    }
+    <?php echo $_SESSION['user']; ?>
+</script>
