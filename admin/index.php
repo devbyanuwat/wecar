@@ -74,7 +74,7 @@ if (!$_SESSION['user']) {
         })
     </script>
     <script>
-        function goods_comment() {
+        async function goods_comment() {
             alert("comment");
             const {
                 value: text

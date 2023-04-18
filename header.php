@@ -16,18 +16,19 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=K2D:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=K2D:wght@500&family=Prompt:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=K2D:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=K2D:wght@500&family=Prompt:wght@200&display=swap');
 
-* {
-    font-family: 'Prompt', sans-serif;
-}
+    * {
+        font-family: 'Prompt', sans-serif;
+    }
 
-body {
-    overflow-x: hidden;
-}
+    body {
+        overflow-x: hidden;
+    }
 </style>
 
 <?php
