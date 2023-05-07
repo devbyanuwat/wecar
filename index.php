@@ -5,9 +5,7 @@
     <div id="content"></div>
 </body>
 <footer>
-
     <?php include('footer.php'); ?>
-
 </footer>
 
 </html>

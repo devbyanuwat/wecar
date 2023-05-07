@@ -18,6 +18,7 @@
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -89,6 +90,10 @@
 </style>
 
 <script>
+    GoodsDetailModal = (model) => {
+        console.log(model);
+
+    }
     $.ajax({
         url: './controller/controller.show.php',
         type: 'GET',
@@ -119,7 +124,7 @@
                 let endTagCardGroup = "</div>";
                 let startTagCard = "<div class='card'> ";
                 let endTagCard = "</div>"
-                let startTagCardBody = "<div class='card-body '>";
+                let startTagCardBody = "<div class='card-body'>";
                 let endTagCardBody = "</div>"
                 let startTagCardTitle = "<div class='card-title'><h5>";
                 let endTagCardTitle = "</h5></div>"
@@ -127,10 +132,10 @@
                 let endTagCardText = "</p></div>"
                 let startTagCardFooter = "<div style='background-color:white;border-top:none' class='card-footer'>";
                 let endTagCardFooter = "</div>";
-                let startTagImg = "<img class='card-img-top' src='./img/goods/" + contentImgGoods + "' > ";
+                let startTagImg = "<img class='card-img-top' style='height:250px' src='./img/goods/" + contentImgGoods + "' > ";
 
                 let spanTooltip = "<span class='w3-tooltiptext'>Detail</span>";
-                let iconViewDetail = "<div onclick='GoodsDetailModal(" + json + ");' class='bi bi-search w3-tooltip  text-end' data-bs-toggle='modal' data-bs-target='#exampleModal'>" + spanTooltip + "</div>";
+                let iconViewDetail = "<div onclick='GoodsDetailModal(" + json + ");' class='bi bi-search w3-tooltip text-end' data-bs-toggle='modal' data-bs-target='#exampleModal'>" + spanTooltip + "</div>";
                 $('#content-detail').append(
                     startTagCardGroup +
                     startTagCard +
@@ -160,10 +165,6 @@
             // $('#goods_name').text(data.data[0].goods_name);
         }
     })
-
-    GoodsDetailModal = (model) => {
-        console.log(model);
-    }
 </script>
 <!-- <?php
         include('../database/db.php');
