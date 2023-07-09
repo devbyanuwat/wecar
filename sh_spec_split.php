@@ -1,6 +1,4 @@
-<div class="bg-light">
-
-
+<div class="bg-white">
     <div class="row">
 
         <div class="col-md-4 col-xs-1">
@@ -12,7 +10,7 @@
                 $result_car = mysqli_query($conn, $sql_car);
             ?>
                 <div class="shadow rounded-3 bg-white m-3">
-                    <div class="fs-4 fw-bold ps-4 pt-2">
+                    <div class="fs-6 fw-bold ps-4 pt-2">
                         <?php echo $table_th[$i] ?>
                     </div>
                     <?php
@@ -72,7 +70,7 @@
                 $result_car = mysqli_query($conn, $sql_car);
             ?>
                 <div class="shadow rounded-3 bg-white m-3">
-                    <div class="fs-4 fw-bold ps-4 pt-2">
+                    <div class="fs-6 fw-bold ps-4 pt-2">
                         <?php echo $table_th[$i] ?>
                     </div>
                     <?php
@@ -149,7 +147,7 @@
                 $result_car = mysqli_query($conn, $sql_car);
             ?>
                 <div class="shadow rounded-3 bg-white m-3">
-                    <div class="fs-4 fw-bold ps-4 pt-2">
+                    <div class="fs-6 fw-bold ps-4 pt-2">
                         <?php echo $table_th[$i] ?>
                     </div>
                     <?php

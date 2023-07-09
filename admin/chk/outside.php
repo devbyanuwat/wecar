@@ -17,29 +17,29 @@
 
         $result_outside = mysqli_query($conn, $sql_outside);
         $count_outside =  mysqli_num_rows($result_outside);
- 
+
         while ($row_outside = mysqli_fetch_assoc($result_outside)) {
             $chk_id = $row_outside['goods_chk_outside_id'];
- 
+
         ?>
- 
+
             <div class="<?php echo $detail; ?>">
                 <div class="row">
                     <input type="hidden" name="outside_id_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_id_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="<?php echo $row_outside['goods_chk_outside_id']; ?>">
                     <?php echo $row_outside['goods_chk_outside_name'];  ?>
                 </div>
- 
+
             </div>
             <div class="col-5 d-flex justify-content-between ">
                 <?php
-                
+
                 if ($id > 0) {
- 
+
                     $sql_outside_value = "SELECT * FROM `chk_outside` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id ORDER BY `chk_outside`.`goods_chk_status_id` DESC";
                     $result_outside_value = mysqli_query($conn, $sql_outside_value);
                     $row_outside_value = mysqli_fetch_assoc($result_outside_value);
-                    
- 
+
+
                     if ($row_outside_value['goods_chk_status_id'] == 1) {
                 ?>
                         <div class="form-check form-check-inline ">
@@ -59,15 +59,15 @@
                         </div>
                     <?php
                     }
- 
+
                     $sql_com = "SELECT * FROM `goods_chk_outside_comment` WHERE `goods_id` = $id AND `goods_chk_outside_id` = $chk_id ORDER BY goods_chk_comment DESC";
-                    
+
                     $result_com = mysqli_query($conn, $sql_com);
                     $row_com = mysqli_fetch_assoc($result_com);
                     $comm = $row_com['goods_chk_comment'];
 
 
-                    
+
                     if ($row_com['goods_chk_comment']) {
                     ?>
                         <a style="cursor: pointer;" id="a_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" onclick="add_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')">
@@ -77,7 +77,7 @@
                             </svg>
                         </a>
 
-                        
+
             </div>
             <div style="display:block;" class="text-end text-secondary fs-6 " id="c_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
                 <span name="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>">
@@ -111,10 +111,10 @@
 <div class="form-check form-check-inline ">
     <input class="form-check-input" type="radio" name="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" id="outside_value_<?php echo $row_outside['goods_chk_outside_id']; ?>" value="2" required>
 </div>
- 
- 
- 
- 
+
+
+
+
 <a style="cursor: pointer;" id="a_outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>" onclick="add_comment('outside_comment_<?php echo $row_outside['goods_chk_outside_id']; ?>')">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -132,10 +132,11 @@
 <?php
                 }
 ?>
- 
- 
- 
-<?php } ?>
+
+
+
+<?php
+        } ?>
 <input type="hidden" name="count_outside" id="count_outside" value="<?php echo $count_outside; ?>">
 </div>
 </div>

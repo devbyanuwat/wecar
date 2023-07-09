@@ -7,24 +7,14 @@
 
 <?php
 session_start();
-
+// echo "<hr>";
+// print_r($_SESSION['user']);
 if (!$_SESSION['user']) {
-    include("chk_login.php");
+    header("location: login.php");
 } else {
-    echo $_SESSION['user'];
+    // echo $_SESSION['user'];
 }
 ?>
-<script>
-    // $("#dialog").dialog();
-    let login;
-    // let password = prompt.hide(chalk.yellow('password: '));
-    // do {
-    //     login = prompt("Please enter password!");
-    //     // 
-    // } while (login != "weusecar")
-    // alert("success");
-    // document.getElementById('body1').style.display = "block";
-</script>
 
 <body style="max-width: 100%;" id="body1">
     <div class="container">

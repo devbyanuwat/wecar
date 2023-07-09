@@ -107,9 +107,9 @@ $detail = $row['goods_detail'];
                     <textarea class="form-control" name="advert" id="advert" cols="10" rows="3"><?php echo $advert; ?></textarea>
                 </div>
 
-                <div class="input-group mb-3" style="">
+                <div class="input-group mb-3" style="display:none">
                     <input type="file" class="form-control" name="filUpload[]" id="filUpload" multiple>
-                    <label class="input-group-text" for="file">Upload</label>
+                    <label class="input-group-text" for="file">Upload Click </label>
                 </div>
                 <div class="col-12 mb-3">
                     <lable for="detail" class="form-label">รายละเอียด</lable>
@@ -224,17 +224,13 @@ $detail = $row['goods_detail'];
 
                                     if ($comm) {
                                     ?>
-
                                 </div>
-
                                 <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text text-warning" viewBox="0 0 16 16">
                                         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                         <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                                     </svg>
                                 </a>
-
-
                             </div>
                             <div style="display:block;" class="text-end text-secondary fs-6 text-end" id="c_spec_comment_<?php echo $i; ?>">
                                 <span name="spec_comment_<?php echo $i; ?>" id="spec_comment_<?php echo $i; ?>">
@@ -244,12 +240,10 @@ $detail = $row['goods_detail'];
 
                                 <button type="button" class="btn-close" aria-label="Close" onclick="clear_comment('spec_comment_<?php echo $i; ?>')"></button>
                             </div>
-
-
                         </div>
-                        <?php
+                    <?php
                                     } else {
-                                ?>
+                    ?>
                 </div>
 
                 <a onclick="add_comment('spec_comment_<?php echo $i; ?>')" style=" cursor: pointer;">
@@ -282,18 +276,20 @@ $detail = $row['goods_detail'];
 
     <div class="col-5 m-4 p-3">
         <?php
-        for ($i = 20; $i <   40; $i++) {
+        for ($i = 20; $i < 40; $i++) {
             # code...
-            $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `chk_spec`.`chk_spec_status` DESC";
+            $sql_car = "SELECT * FROM `chk_spec` WHERE `goods_id` = $id AND `chk_spec_id` = $i ";
             $result_car = mysqli_query($conn, $sql_car);
             $row_car = mysqli_fetch_assoc($result_car);
 
-            $sql_comm = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `spec_comment_detail` DESC";
+            $sql_comm = "SELECT * FROM `spec_comment` WHERE `goods_id` = $id AND `chk_spec_id` = $i ORDER BY `spec_comment_detail` ASC";
             $result_comm = mysqli_query($conn, $sql_comm);
             $row_comm = mysqli_fetch_assoc($result_comm);
             $comm = $row_comm['spec_comment_detail'];
 
-
+            // echo "$sql_car";
+            //exit;
+            echo $row_car['chk_spec_status'];
             $status = $row_car['chk_spec_status'];
         ?>
             <div class="row">
@@ -408,82 +404,56 @@ $detail = $row['goods_detail'];
 <div class="fs-2 text-start mb-4 fw-bold">
     ตรวจสอบสภาพรถ
 </div>
-<div class="d-flex flex-warp justify-content-center">
+<div class="d-flex flex-wrap justify-content-center">
     <div class="bg-white shadow p-3 pt-3 rounded-3">
         <div class="row">
-            <div class="col-4 bg-white ">
-
-                <?php include('chk/outside.php'); ?>
-                <br>
-                <?php include('chk/front_light.php'); ?>
-                <br>
-                <?php include('chk/fog_lamp.php'); ?>
-                <br>
-                <?php include('chk/ruby_bumper.php'); ?>
-                <br>
-                <?php include('chk/windshield.php'); ?>
-                <br>
-                 <?php include('chk/front_fender.php'); ?>
-                    <br>
+            <div class="col-12 col-md-4">
+                <div class="bg-white p-3 mb-3 rounded-3">
+                    <?php include('chk/outside.php'); ?>
+                    <?php include('chk/front_light.php'); ?>
+                    <?php include('chk/fog_lamp.php'); ?>
+                    <?php include('chk/ruby_bumper.php'); ?>
+                    <?php include('chk/windshield.php'); ?>
+                    <?php include('chk/front_fender.php'); ?>
                     <?php include('chk/car_door.php'); ?>
-                    <br>
                     <?php include('chk/car_brand_symbol.php'); ?>
-                    <br>
                     <?php include('chk/rear_fender.php'); ?>
-                    <br>
                     <?php include('chk/car_roof.php'); ?>
-
-                </div>
-                <div class="col-4 bg-white">
-                    <?php include('chk/handrail.php'); ?>
-                    <br>
                     <?php include('chk/window_glass.php'); ?>
-                    <br>
-                    <?php include('chk/engine_compartment_wall.php'); ?>
-                    <br>
-                    <?php include('chk/shock_absorber.php'); ?>
-                    <br>
-                    <?php include('chk/front_beam.php'); ?>
-                    <br>
-                    <?php include('chk/side_mirror.php'); ?>
-                    <br>
-                    <?php include('chk/alloy.php'); ?>
-                    <br>
-                    <?php include('chk/tire.php'); ?>
-                    <br>
-                    <?php include('chk/car_frame.php'); ?>
-
                 </div>
-                <div class="col-4 bg-white">
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="bg-white p-3 mb-3 rounded-3">
+                    <?php include('chk/handrail.php'); ?>
+
+                    <?php include('chk/engine_compartment_wall.php'); ?>
+                    <?php include('chk/shock_absorber.php'); ?>
+                    <?php include('chk/front_beam.php'); ?>
+                    <?php include('chk/side_mirror.php'); ?>
+                    <?php include('chk/alloy.php'); ?>
+                    <?php include('chk/tire.php'); ?>
+                    <?php include('chk/car_frame.php'); ?>
                     <?php include('chk/seat.php'); ?>
-                    <br>
                     <?php include('chk/speed_meter.php'); ?>
-                    <br>
-                    <?php include('chk/entertainment_control_system.php'); ?>
-                    <br>
                     <?php include('chk/multimedia_system.php'); ?>
-                    <br>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="bg-white p-3 mb-3 rounded-3">
+
+                    <?php include('chk/entertainment_control_system.php'); ?>
                     <?php include('chk/instrument_panel.php'); ?>
-                    <br>
                     <?php include('chk/car_lights.php'); ?>
-                    <br>
                     <?php include('chk/ceiling_light.php'); ?>
-                    <br>
                     <?php include('chk/handbrake.php'); ?>
-                    <br>
                     <?php include('chk/ceiling.php'); ?>
-                    <br>
                     <?php include('chk/lock_system.php'); ?>
-                    <br>
                     <?php include('chk/car_floor.php'); ?>
-                    <br>
                     <?php include('chk/window_film.php'); ?>
-                    <br>
                     <?php include('chk/engine_and_gear.php'); ?>
-                    <br>
                     <?php include('chk/powertrain.php'); ?>
-                    <br>
                     <?php include('chk/cooling_system.php'); ?>
+                </div>
             </div>
         </div>
     </div>
@@ -502,7 +472,7 @@ $detail = $row['goods_detail'];
 <script>
     function add_comment(name) {
         Swal.fire({
-            title: "ระบุสาเหตุ" ,
+            title: "ระบุสาเหตุ",
             icon: 'info',
             input: 'text',
             showCancelButton: true

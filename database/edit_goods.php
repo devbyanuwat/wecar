@@ -1,5 +1,4 @@
 <?php
-echo "Edit page";
 include('db.php');
 include('../style/bootstrap5.php');
 $brand = $_POST['brand'];
@@ -17,6 +16,8 @@ $price = $_POST['price'];
 $advert = $_POST['advert'];
 // $file = $_POST['fileupload'];
 $detail = $_POST['detail'];
+
+print_r($detail);
 
 
 // $total = count($_FILES['fileUpload']['name']);
@@ -84,7 +85,6 @@ if (isset($_FILES["filUpload"])) {
         $sql = "INSERT INTO `goods_img` (`goods_img_id`, `goods_id`, `goods_img_src`) VALUES (NULL, '$id', '$filename')";
         mysqli_query($conn, $sql);
         copy($_FILES['filUpload']['tmp_name'][$i], "../img/goods/" . $filename);
-
     }
     // echo "Copy/Upload Complete";
 }
@@ -106,9 +106,10 @@ for ($i = 0; $i < $spec_count; $i++) {
         $comment = "";
         // echo "not found";
     }
-    echo "<br>";
     $sql = "INSERT INTO `chk_spec` (`goods_id`, `chk_spec_id`, `chk_spec_status`) VALUES ('$last_id', '$i', '$status')";
     mysqli_query($conn, $sql);
+    echo "$sql";
+    echo "<br>";
 }
 
 ?>

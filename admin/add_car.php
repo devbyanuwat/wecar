@@ -235,111 +235,65 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="col-6">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="row ">
-                                <div class="col-10 d-flex">
-                                    <label for="spec99" class="form-label">ระบบป้องกันรถไหลเมื่อขึ้นทางลาด</label>
-                                </div>
-                                <div class="col-2 d-flex">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">มี</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="spec99" id="spec99" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">ไม่มี</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                                -->
     </div>
     <div class="fs-2 text-start mb-4 fw-bold">
         ตรวจสอบสภาพรถ
     </div>
-    <div class="d-flex flex-warp justify-content-center">
+    <div class="d-flex flex-wrap justify-content-center">
         <div class="bg-white shadow p-3 pt-3 rounded-3">
             <div class="row">
-                <div class="col-4 bg-white ">
-
-                    <?php include('chk/outside.php'); ?>
-                    <br>
-                    <?php include('chk/front_light.php'); ?>
-                    <br>
-                    <?php include('chk/fog_lamp.php'); ?>
-                    <br>
-                    <?php include('chk/ruby_bumper.php'); ?>
-                    <br>
-                    <?php include('chk/windshield.php'); ?>
-                    <br>
-                    <?php include('chk/front_fender.php'); ?>
-                    <br>
-                    <?php include('chk/car_door.php'); ?>
-                    <br>
-                    <?php include('chk/car_brand_symbol.php'); ?>
-                    <br>
-                    <?php include('chk/rear_fender.php'); ?>
-                    <br>
-                    <?php include('chk/car_roof.php'); ?>
-
+                <div class="col-12 col-md-4">
+                    <div class="bg-white p-3 mb-3 rounded-3">
+                        <?php include('chk/outside.php'); ?>
+                        <?php include('chk/front_light.php'); ?>
+                        <?php include('chk/fog_lamp.php'); ?>
+                        <?php include('chk/ruby_bumper.php'); ?>
+                        <?php include('chk/windshield.php'); ?>
+                        <?php include('chk/front_fender.php'); ?>
+                        <?php include('chk/car_door.php'); ?>
+                        <?php include('chk/car_brand_symbol.php'); ?>
+                        <?php include('chk/rear_fender.php'); ?>
+                        <?php include('chk/car_roof.php'); ?>
+                        <?php include('chk/window_glass.php'); ?>
+                    </div>
                 </div>
-                <div class="col-4 bg-white">
-                    <?php include('chk/handrail.php'); ?>
-                    <br>
-                    <?php include('chk/window_glass.php'); ?>
-                    <br>
-                    <?php include('chk/engine_compartment_wall.php'); ?>
-                    <br>
-                    <?php include('chk/shock_absorber.php'); ?>
-                    <br>
-                    <?php include('chk/front_beam.php'); ?>
-                    <br>
-                    <?php include('chk/side_mirror.php'); ?>
-                    <br>
-                    <?php include('chk/alloy.php'); ?>
-                    <br>
-                    <?php include('chk/tire.php'); ?>
-                    <br>
-                    <?php include('chk/car_frame.php'); ?>
+                <div class="col-12 col-md-4">
+                    <div class="bg-white p-3 mb-3 rounded-3">
+                        <?php include('chk/handrail.php'); ?>
 
+                        <?php include('chk/engine_compartment_wall.php'); ?>
+                        <?php include('chk/shock_absorber.php'); ?>
+                        <?php include('chk/front_beam.php'); ?>
+                        <?php include('chk/side_mirror.php'); ?>
+                        <?php include('chk/alloy.php'); ?>
+                        <?php include('chk/tire.php'); ?>
+                        <?php include('chk/car_frame.php'); ?>
+                        <?php include('chk/seat.php'); ?>
+                        <?php include('chk/speed_meter.php'); ?>
+                        <?php include('chk/multimedia_system.php'); ?>
+                    </div>
                 </div>
-                <div class="col-4 bg-white">
-                    <?php include('chk/seat.php'); ?>
-                    <br>
-                    <?php include('chk/speed_meter.php'); ?>
-                    <br>
-                    <?php include('chk/entertainment_control_system.php'); ?>
-                    <br>
-                    <?php include('chk/multimedia_system.php'); ?>
-                    <br>
-                    <?php include('chk/instrument_panel.php'); ?>
-                    <br>
-                    <?php include('chk/car_lights.php'); ?>
-                    <br>
-                    <?php include('chk/ceiling_light.php'); ?>
-                    <br>
-                    <?php include('chk/handbrake.php'); ?>
-                    <br>
-                    <?php include('chk/ceiling.php'); ?>
-                    <br>
-                    <?php include('chk/lock_system.php'); ?>
-                    <br>
-                    <?php include('chk/car_floor.php'); ?>
-                    <br>
-                    <?php include('chk/window_film.php'); ?>
-                    <br>
-                    <?php include('chk/engine_and_gear.php'); ?>
-                    <br>
-                    <?php include('chk/powertrain.php'); ?>
-                    <br>
-                    <?php include('chk/cooling_system.php'); ?>
+                <div class="col-12 col-md-4">
+                    <div class="bg-white p-3 mb-3 rounded-3">
+
+                        <?php include('chk/entertainment_control_system.php'); ?>
+                        <?php include('chk/instrument_panel.php'); ?>
+                        <?php include('chk/car_lights.php'); ?>
+                        <?php include('chk/ceiling_light.php'); ?>
+                        <?php include('chk/handbrake.php'); ?>
+                        <?php include('chk/ceiling.php'); ?>
+                        <?php include('chk/lock_system.php'); ?>
+                        <?php include('chk/car_floor.php'); ?>
+                        <?php include('chk/window_film.php'); ?>
+                        <?php include('chk/engine_and_gear.php'); ?>
+                        <?php include('chk/powertrain.php'); ?>
+                        <?php include('chk/cooling_system.php'); ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <div class="row">

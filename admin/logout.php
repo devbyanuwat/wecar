@@ -1,3 +1,3 @@
 <?php
-$_SESSION['user'] = "";
-require("index.php");
+$_SESSION['user'] = false;
+header("location: login.php ");

@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(1);
 $conn = mysqli_connect("localhost", "root", "root", "weusecar");
 mysqli_set_charset($conn, "utf8");
 
